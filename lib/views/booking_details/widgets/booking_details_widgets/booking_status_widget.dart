@@ -22,7 +22,7 @@ class BookingStatusWidget extends StatelessWidget {
       children: <Widget>[
         Container(
           width: 353.w,
-          // height: bookingResponse!.bookingStatus.isPending || bookingResponse!.bookingStatus.isStarted
+          // height: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
           //     ? 48.h
           //     : bookingResponse!.bookingStatus.isCancelled && bookingResponse!.payment.status == PaymentStatus.paid ||
           //             bookingResponse!.payment.status == PaymentStatus.unpaid
@@ -35,7 +35,7 @@ class BookingStatusWidget extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondaryContainer,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: bookingResponse!.bookingStatus.isPending || bookingResponse!.bookingStatus.isStarted
+          child: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
               ? Column(
                   children: <Widget>[
                     Row(
@@ -56,7 +56,7 @@ class BookingStatusWidget extends StatelessWidget {
                   bookingResponse: bookingResponse,
                 ),
         ),
-        if (bookingResponse!.bookingStatus.isPending || bookingResponse!.bookingStatus.isStarted) ...<Widget>[
+        if (bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted) ...<Widget>[
           SizedBox(
             height: 24.h,
           ),
@@ -68,9 +68,9 @@ class BookingStatusWidget extends StatelessWidget {
             width: 353.w,
             onTap: () => context.read<UpdateBookingStatusCubit>().updateBookingStatus(
                   bookingId: bookingResponse!.id,
-                  bookingNewStatus: bookingResponse!.bookingStatus.isPending ? 1 : 2,
+                  bookingNewStatus: bookingResponse!.bookingStatus.isConfirmed ? 1 : 2,
                 ),
-            text: bookingResponse!.bookingStatus.isPending ? LocaleKeys.startBooking.tr() : LocaleKeys.finishBooking.tr(),
+            text: bookingResponse!.bookingStatus.isConfirmed ? LocaleKeys.startBooking.tr() : LocaleKeys.finishBooking.tr(),
           ),
         ] else
           const SizedBox.shrink(),

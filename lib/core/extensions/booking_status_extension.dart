@@ -29,6 +29,9 @@ extension BookingStatusExtension on BookingStatus {
     return this == BookingStatus.pending;
   }
 
+  /// Check if the status is pending
+  bool get isConfirmed => this == BookingStatus.confirmed;
+
   /// Check if the status is started
   bool get isStarted {
     return this == BookingStatus.started;
