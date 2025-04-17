@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "566857318461",
+    "project_id": "octopii-73f06",
+    "storage_bucket": "octopii-73f06.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566857318461:android:9fbe8c68a90317c859ea54",
+        "android_client_info": {
+          "package_name": "cloud.octopii.customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566857318461:android:f7b370a7600ff79559ea54",
+        "android_client_info": {
+          "package_name": "cloud.octopii.provider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566857318461:android:213e8f90a15712b359ea54",
+        "android_client_info": {
+          "package_name": "cloud.octopii.vendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

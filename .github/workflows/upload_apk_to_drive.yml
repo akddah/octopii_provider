@@ -1,0 +1,44 @@
+name: Upload APK to Google Drive
+
+on:
+  push:
+    branches:
+      - belda  # سيتم التنفيذ عند كل تحديث للفرع الرئيسي
+
+jobs:
+  build:
+    name: Build and Upload APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.27.1"  # استخدم إصدارك الحالي من Flutter
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Save APK Path
+        id: apk
+        run: echo "APK_PATH=$(find build/app/outputs/flutter-apk -name '*.apk' | head -n 1)" >> $GITHUB_ENV
+
+      - name: Install Python Dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Authenticate with Google Drive
+        env:
+          GDRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
+        run: echo "$GDRIVE_CREDENTIALS" > credentials.json
+
+      - name: Upload APK to Google Drive
+        run: python .github/workflows/upload_to_drive.py
