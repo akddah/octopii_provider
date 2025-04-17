@@ -88,9 +88,7 @@ class BookingDetailsActionButtons extends StatelessWidget {
                         width: 10.w,
                       ),
                       Text(
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.primary),
                         LocaleKeys.getDirection.tr(),
                       ).wrapCenter(),
                     ],
