@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "566857318461",
-    "project_id": "octopii-73f06",
-    "storage_bucket": "octopii-73f06.firebasestorage.app"
+    "project_number": "857747602329",
+    "project_id": "belda-8ade9",
+    "storage_bucket": "belda-8ade9.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566857318461:android:9fbe8c68a90317c859ea54",
+        "mobilesdk_app_id": "1:857747602329:android:8a213572b774772682f108",
         "android_client_info": {
-          "package_name": "cloud.octopii.customer"
+          "package_name": "cloud.belda.customer"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
+          "current_key": "AIzaSyCB9Czxf0WcYJjwsjPCA50-5hG5D7DUlS4"
         }
       ],
       "services": {
@@ -26,34 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566857318461:android:f7b370a7600ff79559ea54",
+        "mobilesdk_app_id": "1:857747602329:android:bc77f02e1ad532e982f108",
         "android_client_info": {
-          "package_name": "cloud.octopii.provider"
+          "package_name": "cloud.belda.provider"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:566857318461:android:213e8f90a15712b359ea54",
-        "android_client_info": {
-          "package_name": "cloud.octopii.vendor"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCr1_goSfgg2W9dIfRg6D_OBjGKchxTBlU"
+          "current_key": "AIzaSyCB9Czxf0WcYJjwsjPCA50-5hG5D7DUlS4"
         }
       ],
       "services": {
