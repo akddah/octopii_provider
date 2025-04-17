@@ -3,7 +3,7 @@ name: Upload APK to Google Drive
 on:
   push:
     branches:
-      - main  # سيتم التنفيذ عند كل تحديث للفرع الرئيسي
+      - belda  # سيتم التنفيذ عند كل تحديث للفرع الرئيسي
 
 jobs:
   build:
