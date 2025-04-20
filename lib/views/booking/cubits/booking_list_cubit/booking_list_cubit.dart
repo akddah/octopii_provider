@@ -88,7 +88,7 @@ class BookingListCubit extends Cubit<BookingListState> {
           state.copyWith(
             status: BookingStateStatus.loaded,
             upComingdBookingResponseModel: <BookingDetails>[
-              ...state.upComingdBookingResponseModel ?? <BookingDetails>[],
+              if (isLoadMore) ...state.upComingdBookingResponseModel ?? <BookingDetails>[],
               ...newBookings,
             ],
             isLoadingMoreUpComingdBooking: false,
@@ -154,7 +154,7 @@ class BookingListCubit extends Cubit<BookingListState> {
           state.copyWith(
             status: BookingStateStatus.loaded,
             finishedBookingResponseModel: <BookingDetails>[
-              ...state.finishedBookingResponseModel ?? <BookingDetails>[],
+              if (isLoadMore) ...state.finishedBookingResponseModel ?? <BookingDetails>[],
               ...newBookings,
             ],
             isLoadingMoreFinishedBooking: false,

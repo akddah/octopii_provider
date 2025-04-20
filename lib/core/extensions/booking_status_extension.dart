@@ -74,7 +74,6 @@ extension BookingStatusExtension on BookingStatus {
         return BookingStatus.completed;
       case 4:
         return BookingStatus.confirmed;
-
       case 3:
         return BookingStatus.cancelled;
       default:
