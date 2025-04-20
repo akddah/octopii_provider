@@ -56,7 +56,7 @@ class BookingStatusWidget extends StatelessWidget {
                   bookingResponse: bookingResponse,
                 ),
         ),
-        if (bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted) ...<Widget>[
+        if (bookingResponse!. bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted) ...<Widget>[
           SizedBox(
             height: 24.h,
           ),
