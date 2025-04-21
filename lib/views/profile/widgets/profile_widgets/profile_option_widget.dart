@@ -53,14 +53,14 @@ class ProfileOptionWidget extends StatelessWidget {
           SizedBox(
             height: 12.h,
           ),
-          ProfileOptionView(
-            imagePath: MyAssets.icons.workHistoryIcon.path,
-            title: LocaleKeys.manageWorkingHours.tr(),
-            onTap: () => context.push(RouteNames.manageWorkingDays),
-          ),
-          SizedBox(
-            height: 12.h,
-          ),
+          // ProfileOptionView(
+          //   imagePath: MyAssets.icons.workHistoryIcon.path,
+          //   title: LocaleKeys.manageWorkingHours.tr(),
+          //   onTap: () => context.push(RouteNames.manageWorkingDays),
+          // ),
+          // SizedBox(
+          //   height: 12.h,
+          // ),
           ProfileOptionView(
             imagePath: MyAssets.icons.languageIcon.path,
             title: LocaleKeys.language.tr(),

@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../models/schedule_list/working_days_response_model.dart';
 import '../../views/holidays/cubits/list_holidays_cubit/list_holidays_cubit.dart';
 import '../../views/layout/cubit/home_page_layout_cubit.dart';
 import '../../views/notifications/cubits/get_notifications_cubit/get_notifications_cubit.dart';
@@ -406,29 +405,29 @@ class AppHelperFunctions {
   ///
   /// Returns the updated `WorkingDay` object if a time was selected, or `null`
   /// if the picker was cancelled.
-  Future<WorkingDay?> pickTime({
-    required bool isShorFromFieldOnly,
-    required WorkingDay workingDaysData,
-  }) async {
-    final TimeOfDay? picked = await showTimePicker(
-      initialEntryMode: TimePickerEntryMode.dialOnly,
-      context: navigatorKey.currentContext!,
-      initialTime: TimeOfDay.now(),
-    );
-    if (picked != null) {
-      final double timeIn24HourFormat = picked.hour + (picked.minute / 60);
-      final WorkingDay updatedDay = workingDaysData.copyWith(
-        off: false,
-        from: isShorFromFieldOnly ? timeIn24HourFormat : workingDaysData.from,
-        to: isShorFromFieldOnly ? workingDaysData.to : timeIn24HourFormat,
-      );
-      if (navigatorKey.currentContext!.mounted) {
-        AppLogger().info(
-          'Selected Time (24-hour): $timeIn24HourFormat | Display Time: ${picked.format(navigatorKey.currentContext!)}',
-        );
-        return updatedDay;
-      }
-    }
-    return null;
-  }
+  // Future<WorkingDay?> pickTime({
+  //   required bool isShorFromFieldOnly,
+  //   required WorkingDay workingDaysData,
+  // }) async {
+  //   final TimeOfDay? picked = await showTimePicker(
+  //     initialEntryMode: TimePickerEntryMode.dialOnly,
+  //     context: navigatorKey.currentContext!,
+  //     initialTime: TimeOfDay.now(),
+  //   );
+  //   if (picked != null) {
+  //     final double timeIn24HourFormat = picked.hour + (picked.minute / 60);
+  //     final WorkingDay updatedDay = workingDaysData.copyWith(
+  //       off: false,
+  //       from: isShorFromFieldOnly ? timeIn24HourFormat : workingDaysData.from,
+  //       to: isShorFromFieldOnly ? workingDaysData.to : timeIn24HourFormat,
+  //     );
+  //     if (navigatorKey.currentContext!.mounted) {
+  //       AppLogger().info(
+  //         'Selected Time (24-hour): $timeIn24HourFormat | Display Time: ${picked.format(navigatorKey.currentContext!)}',
+  //       );
+  //       return updatedDay;
+  //     }
+  //   }
+  //   return null;
+  // }
 }

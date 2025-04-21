@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
-import 'package:octopii_provier_app/core/extensions/widgets_extensions.dart';
-import 'package:octopii_provier_app/core/theme/app_colors.dart';
+
+import '../extensions/widgets_extensions.dart';
+import '../theme/app_colors.dart';
 
 class CustomTabBar extends HookWidget {
   const CustomTabBar({
@@ -88,10 +88,11 @@ class TabViewItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LazyLoadIndexedStack(
-      index: selectedIndex,
-      children: tabViewItems,
-    );
+    return tabViewItems[selectedIndex];
+    // LazyLoadIndexedStack(
+    //   index: selectedIndex,
+    //   children: tabViewItems,
+    // );
   }
 }
 
