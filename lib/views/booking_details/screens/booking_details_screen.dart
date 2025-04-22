@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:octopii_provier_app/core/extensions/booking_status_extension.dart';
+import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
 import '../../../core/common_widgets/application_app_bar_back_button.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_system_ui_overlay_styles.dart';
@@ -41,7 +43,7 @@ class BookingDetailsScreen extends StatelessWidget {
         child: Scaffold(
           bottomNavigationBar: BlocBuilder<BookingDetailsCubit, BookingDetailsState>(
             builder: (BuildContext context, BookingDetailsState state) {
-              if (state.bookingDetailsResponseModel != null) {
+              if (state.bookingDetailsResponseModel?.response != null && showBtns(state.bookingDetailsResponseModel!)) {
                 return BookingDetailsActionButtons(
                   bookingResponse: state.bookingDetailsResponseModel!.response,
                 );
@@ -58,5 +60,21 @@ class BookingDetailsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool showBtns(BookingDetailsData bookingResponse) {
+    final orderTime = bookingResponse.response?.date?.toLocal();
+    if (orderTime == null) {
+      return false;
+    } else {
+      final now = DateTime.now();
+      final halfHourBeforeOrder = orderTime.subtract(Duration(minutes: 30));
+
+      if (now.isAfter(halfHourBeforeOrder) && now.isBefore(orderTime)) {
+        return bookingResponse.response!.bookingStatus.isConfirmed || bookingResponse.response!.bookingStatus.isStarted;
+      } else {
+        return false;
+      }
+    }
   }
 }

@@ -208,5 +208,6 @@
   "appartment_no": "Apartment No",
   "h": "H",
   "min": "Min",
-  "discount": "Discount"
+  "discount": "Discount",
+  "orderActionsMsg": "The order action will become available 30 minutes before the scheduled time."
 }
