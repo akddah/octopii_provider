@@ -211,5 +211,6 @@ abstract class  LocaleKeys {
   static const h = 'h';
   static const min = 'min';
   static const discount = 'discount';
+  static const orderActionsMsg = 'orderActionsMsg';
 
 }
