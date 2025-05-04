@@ -20,19 +20,15 @@ class ServerGate {
 
   static final ServerGate i = ServerGate._();
 
-    Future<String> getDomain( [bool takeOtherBaseurl = false]) async {
-      final url =takeOtherBaseurl? dotenv.get(
-                AppConstantStrings.baseUrlTwo
-              ) : dotenv.get(AppConstantStrings.baseUrl);
-      final i = await SharedPreferences.getInstance();
-       if(i.getString('domain')!=null){
-         return  url.replaceAll('test-market', i.getString('domain')!);
-       }else{
-         return  url;
-       }
-
-
+  Future<String> getDomain([bool takeOtherBaseurl = false]) async {
+    final url = takeOtherBaseurl ? dotenv.get(AppConstantStrings.baseUrlTwo) : dotenv.get(AppConstantStrings.baseUrl);
+    final i = await SharedPreferences.getInstance();
+    if (i.getString('domain') != null) {
+      return url.replaceAll('test-market', i.getString('domain')!);
+    } else {
+      return url;
     }
+  }
 
   Future<CustomResponse<T>> sendToServer<T>({
     required String url,
@@ -182,9 +178,7 @@ class ServerGate {
         (String key, dynamic value) => value == null || '$value'.isEmpty,
       );
       final Response<dynamic> res = await _dio.get(
-        url.startsWith('http')
-            ? url
-            :"${await getDomain(takeOtherBaseurl)}/$url",
+        url.startsWith('http') ? url : "${await getDomain(takeOtherBaseurl)}/$url",
         options: Options(
           headers: <String, dynamic>{
             if (headers != null) ...headers,
