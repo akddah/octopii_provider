@@ -1,7 +1,7 @@
 class AppStrings {
   static const String englishLang = 'en';
   static const String arabicLang = 'ar';
-  static const String applicationName = 'Belda Provider';
+  static const String applicationName = 'Octopii Provider';
   static const String otpTag = 'otpTag';
   static const String bulletPoint = '\u2022 ';
   static const String egyptIsoCode = 'EG';

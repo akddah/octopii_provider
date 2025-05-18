@@ -12,8 +12,8 @@ import 'core/utils/utils/app_logger.dart';
 // final String phone = kDebugMode ? '01117246896' : '';
 // final String password = kDebugMode ? '123456' : '';
 //
-final String domain = kDebugMode ? 'team' : '';
-final String phone = kDebugMode ? '01119021021' : '';
+final String domain = kDebugMode ? 'anaan' : '';
+final String phone = kDebugMode ? '01065534815' : '';
 final String password = kDebugMode ? '123456' : '';
 Future<void> main() async {
   await runZonedGuarded(() async {
