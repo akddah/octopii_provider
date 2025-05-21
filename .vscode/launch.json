@@ -1,0 +1,23 @@
+{
+    "configurations": [
+      {
+        "name": "Flutter (test)",
+        "program": "lib/main.dart",
+        "request": "launch",
+        "type": "dart",
+        "args": [
+          "--dart-define=mode=test"
+        ]
+      },
+      {
+        "name": "Flutter (live)",
+        "program": "lib/main.dart",
+        "request": "launch",
+        "type": "dart",
+        "args": [
+          "--dart-define=mode=live"
+        ]
+      }
+    ]
+  }
+  
