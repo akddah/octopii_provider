@@ -1,6 +1,11 @@
 class AppConstantStrings {
-  static String baseUrl = 'BASE_URL';
-  static String baseUrlTwo = 'BASE_URL_TWO';
+  static const String environment = String.fromEnvironment('mode', defaultValue: 'live');
+  static String get baseUrl => environment == 'test' ? testBaseUrl : liveBaseUrl;
+  static String get baseUrlTwo => environment == 'test' ? testBaseUrlTwo : liveBaseUrlTwo;
+  static String liveBaseUrl = 'BASE_URL';
+  static String liveBaseUrlTwo = 'BASE_URL_TWO';
+  static String testBaseUrl = 'BASE_URL';
+  static String testBaseUrlTwo = 'BASE_URL_TWO';
   static String login = 'LOGIN';
   static String verifyOtp = 'VERIFY_OTP';
   static String requestOtp = 'REQUEST_OTP';

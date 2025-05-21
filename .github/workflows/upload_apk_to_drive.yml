@@ -23,8 +23,16 @@ jobs:
       - name: Get Dependencies
         run: flutter pub get
 
+      # - name: Build APK
+      #   run: flutter build apk --release
+
       - name: Build APK
-        run: flutter build apk --release
+        run: |
+          if [[ "${{ github.ref_name }}" == "stg" ]]; then
+            flutter build apk --dart-define=mode=test
+          else
+            flutter build apk --dart-define=mode=live
+          fi
 
       - name: Save APK Path
         id: apk

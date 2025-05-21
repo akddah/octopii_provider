@@ -13,7 +13,13 @@ drive_service = build('drive', 'v3', credentials=creds)
 # Define file details
 APK_PATH = os.getenv('APK_PATH')
 FOLDER_ID = "1Wko8gHsCXGr8-jhWGlqVaSHXoVLk-S3P"  # Your Google Drive folder ID
-FILE_NAME = 'octopii-provider.apk'  # Name of the APK file
+
+BRANCH_NAME = os.getenv('GITHUB_REF_NAME', 'main')  # Default to 'stg' if not set
+
+if BRANCH_NAME == 'main':
+    FILE_NAME = 'octopii-provider-prod.apk'
+else:
+    FILE_NAME = 'octopii-provider-stg.apk'
 
 # Step 1: Search for an existing file with the same name in the folder
 query = f"name='{FILE_NAME}' and '{FOLDER_ID}' in parents and trashed=false"
