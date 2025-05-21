@@ -42,10 +42,10 @@ git remote add origin https://github.com/akddah/octopii_provider.git;
 git push -u origin main;
 
 
-fvm flutter pub run build_runner build --delete-conflicting-outputs
 
 
 git stash        
 git stash pop        
 
-//
+for freezed
+fvm flutter pub run build_runner build --delete-conflicting-outputs

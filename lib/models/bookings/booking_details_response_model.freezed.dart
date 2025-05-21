@@ -196,6 +196,8 @@ mixin _$BookingResponse {
   int? get status => throw _privateConstructorUsedError;
   num? get total => throw _privateConstructorUsedError;
   String? get discount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'reference_id')
+  String? get referenceId => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_price')
   num? get totalPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer_id')
@@ -228,8 +230,8 @@ mixin _$BookingResponse {
   num? get countryCode => throw _privateConstructorUsedError;
   @JsonKey(name: 'ended_date')
   DateTime? get endedDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_by')
-  DateTime? get createdBy => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  String? get createdBy => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   Address? get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_foreign')
@@ -261,6 +263,7 @@ abstract class $BookingResponseCopyWith<$Res> {
       int? status,
       num? total,
       String? discount,
+      @JsonKey(name: 'reference_id') String? referenceId,
       @JsonKey(name: 'total_price') num? totalPrice,
       @JsonKey(name: 'customer_id') dynamic customerId,
       @JsonKey(name: 'customer_name') String? customerName,
@@ -282,7 +285,7 @@ abstract class $BookingResponseCopyWith<$Res> {
       @JsonKey(name: 'package_id') num? packageId,
       @JsonKey(name: 'country_code') num? countryCode,
       @JsonKey(name: 'ended_date') DateTime? endedDate,
-      @JsonKey(name: 'created_by') DateTime? createdBy,
+      @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
       @JsonKey(includeIfNull: false) Address? address,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') Address? foreignAddress,
@@ -314,6 +317,7 @@ class _$BookingResponseCopyWithImpl<$Res, $Val extends BookingResponse>
     Object? status = freezed,
     Object? total = freezed,
     Object? discount = freezed,
+    Object? referenceId = freezed,
     Object? totalPrice = freezed,
     Object? customerId = freezed,
     Object? customerName = freezed,
@@ -359,6 +363,10 @@ class _$BookingResponseCopyWithImpl<$Res, $Val extends BookingResponse>
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
+              as String?,
+      referenceId: freezed == referenceId
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
               as String?,
       totalPrice: freezed == totalPrice
           ? _value.totalPrice
@@ -439,7 +447,7 @@ class _$BookingResponseCopyWithImpl<$Res, $Val extends BookingResponse>
       createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -530,6 +538,7 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       int? status,
       num? total,
       String? discount,
+      @JsonKey(name: 'reference_id') String? referenceId,
       @JsonKey(name: 'total_price') num? totalPrice,
       @JsonKey(name: 'customer_id') dynamic customerId,
       @JsonKey(name: 'customer_name') String? customerName,
@@ -551,7 +560,7 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       @JsonKey(name: 'package_id') num? packageId,
       @JsonKey(name: 'country_code') num? countryCode,
       @JsonKey(name: 'ended_date') DateTime? endedDate,
-      @JsonKey(name: 'created_by') DateTime? createdBy,
+      @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
       @JsonKey(includeIfNull: false) Address? address,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') Address? foreignAddress,
@@ -585,6 +594,7 @@ class __$$BookingResponseImplCopyWithImpl<$Res>
     Object? status = freezed,
     Object? total = freezed,
     Object? discount = freezed,
+    Object? referenceId = freezed,
     Object? totalPrice = freezed,
     Object? customerId = freezed,
     Object? customerName = freezed,
@@ -630,6 +640,10 @@ class __$$BookingResponseImplCopyWithImpl<$Res>
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
+              as String?,
+      referenceId: freezed == referenceId
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
               as String?,
       totalPrice: freezed == totalPrice
           ? _value.totalPrice
@@ -710,7 +724,7 @@ class __$$BookingResponseImplCopyWithImpl<$Res>
       createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -740,6 +754,7 @@ class _$BookingResponseImpl implements _BookingResponse {
       required this.status,
       required this.total,
       required this.discount,
+      @JsonKey(name: 'reference_id') required this.referenceId,
       @JsonKey(name: 'total_price') required this.totalPrice,
       @JsonKey(name: 'customer_id') required this.customerId,
       @JsonKey(name: 'customer_name') required this.customerName,
@@ -761,7 +776,7 @@ class _$BookingResponseImpl implements _BookingResponse {
       @JsonKey(name: 'package_id') this.packageId,
       @JsonKey(name: 'country_code') this.countryCode,
       @JsonKey(name: 'ended_date') this.endedDate,
-      @JsonKey(name: 'created_by') this.createdBy,
+      @JsonKey(fromJson: _stringFromAny, name: 'created_by') this.createdBy,
       @JsonKey(includeIfNull: false) this.address,
       @JsonKey(name: 'is_foreign') this.isForeign,
       @JsonKey(name: 'foreign_address') this.foreignAddress,
@@ -782,6 +797,9 @@ class _$BookingResponseImpl implements _BookingResponse {
   final num? total;
   @override
   final String? discount;
+  @override
+  @JsonKey(name: 'reference_id')
+  final String? referenceId;
   @override
   @JsonKey(name: 'total_price')
   final num? totalPrice;
@@ -850,8 +868,8 @@ class _$BookingResponseImpl implements _BookingResponse {
   @JsonKey(name: 'ended_date')
   final DateTime? endedDate;
   @override
-  @JsonKey(name: 'created_by')
-  final DateTime? createdBy;
+  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  final String? createdBy;
   @override
   @JsonKey(includeIfNull: false)
   final Address? address;
@@ -867,7 +885,7 @@ class _$BookingResponseImpl implements _BookingResponse {
 
   @override
   String toString() {
-    return 'BookingResponse(id: $id, date: $date, status: $status, total: $total, discount: $discount, totalPrice: $totalPrice, customerId: $customerId, customerName: $customerName, payment: $payment, providers: $providers, services: $services, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceDuration: $serviceDuration, serviceCost: $serviceCost, bookingStatus: $bookingStatus, createdAt: $createdAt, customerPhone: $customerPhone, basePrice: $basePrice, feedback: $feedback, notes: $notes, packageId: $packageId, countryCode: $countryCode, endedDate: $endedDate, createdBy: $createdBy, address: $address, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
+    return 'BookingResponse(id: $id, date: $date, status: $status, total: $total, discount: $discount, referenceId: $referenceId, totalPrice: $totalPrice, customerId: $customerId, customerName: $customerName, payment: $payment, providers: $providers, services: $services, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceDuration: $serviceDuration, serviceCost: $serviceCost, bookingStatus: $bookingStatus, createdAt: $createdAt, customerPhone: $customerPhone, basePrice: $basePrice, feedback: $feedback, notes: $notes, packageId: $packageId, countryCode: $countryCode, endedDate: $endedDate, createdBy: $createdBy, address: $address, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
   }
 
   @override
@@ -881,6 +899,8 @@ class _$BookingResponseImpl implements _BookingResponse {
             (identical(other.total, total) || other.total == total) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
+            (identical(other.referenceId, referenceId) ||
+                other.referenceId == referenceId) &&
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
             const DeepCollectionEquality()
@@ -936,6 +956,7 @@ class _$BookingResponseImpl implements _BookingResponse {
         status,
         total,
         discount,
+        referenceId,
         totalPrice,
         const DeepCollectionEquality().hash(customerId),
         customerName,
@@ -986,6 +1007,7 @@ abstract class _BookingResponse implements BookingResponse {
       required final int? status,
       required final num? total,
       required final String? discount,
+      @JsonKey(name: 'reference_id') required final String? referenceId,
       @JsonKey(name: 'total_price') required final num? totalPrice,
       @JsonKey(name: 'customer_id') required final dynamic customerId,
       @JsonKey(name: 'customer_name') required final String? customerName,
@@ -1007,7 +1029,8 @@ abstract class _BookingResponse implements BookingResponse {
       @JsonKey(name: 'package_id') final num? packageId,
       @JsonKey(name: 'country_code') final num? countryCode,
       @JsonKey(name: 'ended_date') final DateTime? endedDate,
-      @JsonKey(name: 'created_by') final DateTime? createdBy,
+      @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+      final String? createdBy,
       @JsonKey(includeIfNull: false) final Address? address,
       @JsonKey(name: 'is_foreign') final bool? isForeign,
       @JsonKey(name: 'foreign_address') final Address? foreignAddress,
@@ -1027,6 +1050,9 @@ abstract class _BookingResponse implements BookingResponse {
   num? get total;
   @override
   String? get discount;
+  @override
+  @JsonKey(name: 'reference_id')
+  String? get referenceId;
   @override
   @JsonKey(name: 'total_price')
   num? get totalPrice;
@@ -1079,8 +1105,8 @@ abstract class _BookingResponse implements BookingResponse {
   @JsonKey(name: 'ended_date')
   DateTime? get endedDate;
   @override
-  @JsonKey(name: 'created_by')
-  DateTime? get createdBy;
+  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  String? get createdBy;
   @override
   @JsonKey(includeIfNull: false)
   Address? get address;

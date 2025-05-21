@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,25 +35,25 @@ class BookingDetailsCubit extends Cubit<BookingDetailsState> {
     );
     switch (result.responseState) {
       case ResponseState.success:
-        try {
-          final BookingDetailsData bookingDetailsResponseModel = BookingDetailsData.fromJson(
-            result.data!,
-          );
-          emit(
-            state.copyWith(
-              status: GenericStateStatus.loaded,
-              bookingDetailsResponseModel: bookingDetailsResponseModel,
-            ),
-          );
-        } catch (e) {
-          log('-=-=-=-=-=- $e');
-          emit(
-            state.copyWith(
-              status: GenericStateStatus.error,
-              errorMsg: '$e',
-            ),
-          );
-        }
+        // try {
+        final BookingDetailsData bookingDetailsResponseModel = BookingDetailsData.fromJson(
+          result.data!,
+        );
+        emit(
+          state.copyWith(
+            status: GenericStateStatus.loaded,
+            bookingDetailsResponseModel: bookingDetailsResponseModel,
+          ),
+        );
+      // } catch (e) {
+      //   log('-=-=-=-=-=- $e');
+      //   emit(
+      //     state.copyWith(
+      //       status: GenericStateStatus.error,
+      //       errorMsg: '$e',
+      //     ),
+      //   );
+      // }
 
       case ResponseState.error:
         emit(

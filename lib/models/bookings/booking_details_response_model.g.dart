@@ -29,6 +29,7 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       status: (json['status'] as num?)?.toInt(),
       total: json['total'] as num?,
       discount: json['discount'] as String?,
+      referenceId: json['reference_id'] as String?,
       totalPrice: json['total_price'] as num?,
       customerId: json['customer_id'],
       customerName: json['customer_name'] as String?,
@@ -59,9 +60,7 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       endedDate: json['ended_date'] == null
           ? null
           : DateTime.parse(json['ended_date'] as String),
-      createdBy: json['created_by'] == null
-          ? null
-          : DateTime.parse(json['created_by'] as String),
+      createdBy: _stringFromAny(json['created_by']),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -83,6 +82,7 @@ Map<String, dynamic> _$$BookingResponseImplToJson(
       'status': instance.status,
       'total': instance.total,
       'discount': instance.discount,
+      'reference_id': instance.referenceId,
       'total_price': instance.totalPrice,
       'customer_id': instance.customerId,
       'customer_name': instance.customerName,
@@ -102,7 +102,7 @@ Map<String, dynamic> _$$BookingResponseImplToJson(
       'package_id': instance.packageId,
       'country_code': instance.countryCode,
       'ended_date': instance.endedDate?.toIso8601String(),
-      'created_by': instance.createdBy?.toIso8601String(),
+      'created_by': instance.createdBy,
       if (instance.address case final value?) 'address': value,
       'is_foreign': instance.isForeign,
       'foreign_address': instance.foreignAddress,

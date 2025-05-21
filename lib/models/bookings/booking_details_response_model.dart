@@ -5,7 +5,6 @@ import 'package:octopii_provier_app/core/helpers/enums.dart';
 import 'package:octopii_provier_app/models/bookings/booking_response_model.dart';
 
 part 'booking_details_response_model.freezed.dart';
-
 part 'booking_details_response_model.g.dart';
 
 @freezed
@@ -18,6 +17,7 @@ class BookingDetailsData with _$BookingDetailsData {
 }
 
 Object? readIdValue(Map<dynamic, dynamic> json, String key) => json['customer_id'] ?? json['customer_id'];
+String _stringFromAny(dynamic value) => value?.toString() ?? '';
 
 @freezed
 class BookingResponse with _$BookingResponse {
@@ -27,6 +27,7 @@ class BookingResponse with _$BookingResponse {
     required int? status,
     required num? total,
     required String? discount,
+    @JsonKey(name: 'reference_id') required String? referenceId,
     @JsonKey(name: 'total_price') required num? totalPrice,
     @JsonKey(name: 'customer_id') required dynamic customerId,
     @JsonKey(name: 'customer_name') required String? customerName,
@@ -37,11 +38,7 @@ class BookingResponse with _$BookingResponse {
     @JsonKey(name: 'service_title') required String? serviceTitle,
     @JsonKey(name: 'service_duration') required double? serviceDuration,
     @JsonKey(name: 'service_cost') required String? serviceCost,
-    @JsonKey(
-      name: 'booking_status',
-      fromJson: BookingStatusExtension.fromValue,
-    )
-    required BookingStatus bookingStatus,
+    @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue) required BookingStatus bookingStatus,
     @JsonKey(name: 'created_at') required DateTime? createdAt,
     @JsonKey(name: 'customer_phone') String? customerPhone,
     num? basePrice,
@@ -50,8 +47,8 @@ class BookingResponse with _$BookingResponse {
     @JsonKey(name: 'package_id') num? packageId,
     @JsonKey(name: 'country_code') num? countryCode,
     @JsonKey(name: 'ended_date') DateTime? endedDate,
-    @JsonKey(name: 'created_by') DateTime? createdBy,
-    @JsonKey(includeIfNull: false) Address? address,
+    @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
+    Address? address,
     @JsonKey(name: 'is_foreign') bool? isForeign,
     @JsonKey(name: 'foreign_address') Address? foreignAddress,
     @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer,
