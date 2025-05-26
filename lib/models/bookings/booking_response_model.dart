@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:octopii_provier_app/core/extensions/payment_status_extension.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
+import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
 
 part 'booking_response_model.freezed.dart';
-
 part 'booking_response_model.g.dart';
 
 @freezed
@@ -56,6 +56,7 @@ class BookingDetails with _$BookingDetails {
     @JsonKey(name: 'cities_id') int? citiesId,
     @JsonKey(name: 'cities_title') String? citiesTitle,
     @JsonKey(name: 'area_title') String? areaTitle,
+    @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id') String? referenceId,
     @JsonKey(name: 'is_foreign') bool? isForeign,
     @JsonKey(name: 'foreign_address') ForeignAddress? foreignAddress,
     @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer,

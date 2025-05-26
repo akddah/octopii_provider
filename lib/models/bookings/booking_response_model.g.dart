@@ -79,6 +79,7 @@ _$BookingDetailsImpl _$$BookingDetailsImplFromJson(Map<String, dynamic> json) =>
       citiesId: (json['cities_id'] as num?)?.toInt(),
       citiesTitle: json['cities_title'] as String?,
       areaTitle: json['area_title'] as String?,
+      referenceId: stringFromAnyNull(json['reference_id']),
       isForeign: json['is_foreign'] as bool?,
       foreignAddress: json['foreign_address'] == null
           ? null
@@ -116,6 +117,7 @@ Map<String, dynamic> _$$BookingDetailsImplToJson(
       'cities_id': instance.citiesId,
       'cities_title': instance.citiesTitle,
       'area_title': instance.areaTitle,
+      'reference_id': instance.referenceId,
       'is_foreign': instance.isForeign,
       'foreign_address': instance.foreignAddress,
       'foreign_customer': instance.foreignCustomer,

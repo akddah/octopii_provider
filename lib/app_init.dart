@@ -29,8 +29,8 @@ class AppInit {
       ],
     );
 
-    await SharedPreferences.getInstance()
-      ..clear();
+    await SharedPreferences.getInstance();
+    // ..clear();
 
     await dotenv.load();
     await EasyLocalization.ensureInitialized();

@@ -11,6 +11,7 @@ import 'package:octopii_provier_app/core/helpers/enums.dart';
 import 'package:octopii_provier_app/core/theme/app_colors.dart';
 import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
+import 'package:octopii_provier_app/main.dart';
 import 'package:octopii_provier_app/models/login/login_request_model.dart';
 import 'package:octopii_provier_app/views/auth/country_list/cubits/get_country_list_cubit/get_country_list_cubit.dart';
 import 'package:octopii_provier_app/views/auth/country_list/widgets/country_list_widgets/country_view.dart';
@@ -18,13 +19,12 @@ import 'package:octopii_provier_app/views/auth/forgot_password/cubits/request_ot
 import 'package:octopii_provier_app/views/auth/forgot_password/wigdets/forgot_password_widgets/request_opt_listener_widget.dart';
 
 class ForgotPasswordBody extends HookWidget {
-
   const ForgotPasswordBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<bool> isValidPhoneNumber = useState(false);
-    final TextEditingController phoneNumberController = useTextEditingController();
+    final TextEditingController phoneNumberController = useTextEditingController(text: phone);
     AppLogger().info('The Sending Mobile Number Is ${phoneNumberController.text}');
     bool formIsNotEmpty() {
       return isValidPhoneNumber.value = phoneNumberController.text.trim().isNotEmpty;

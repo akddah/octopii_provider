@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:octopii_provier_app/core/const/dimensions.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
 
@@ -45,6 +46,18 @@ class CustomerInfoSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Text.rich(TextSpan(children: [
+                  if (bookingResponse?.referenceId != null) ...[
+                    TextSpan(
+                      text: '#${bookingResponse!.referenceId}',
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            fontSize: 13.sp,
+                            fontWeight: AppDimensions.bold,
+                          ),
+                    ),
+                    TextSpan(text: " "),
+                  ],
+                ])),
                 if (address != null) ...<Widget>[
                   Text(
                     LocaleKeys.location.tr(),

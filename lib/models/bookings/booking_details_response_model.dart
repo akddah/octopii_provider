@@ -17,7 +17,8 @@ class BookingDetailsData with _$BookingDetailsData {
 }
 
 Object? readIdValue(Map<dynamic, dynamic> json, String key) => json['customer_id'] ?? json['customer_id'];
-String _stringFromAny(dynamic value) => value?.toString() ?? '';
+String stringFromAny(dynamic value) => value?.toString() ?? '';
+String? stringFromAnyNull(dynamic value) => value?.toString();
 
 @freezed
 class BookingResponse with _$BookingResponse {
@@ -47,7 +48,7 @@ class BookingResponse with _$BookingResponse {
     @JsonKey(name: 'package_id') num? packageId,
     @JsonKey(name: 'country_code') num? countryCode,
     @JsonKey(name: 'ended_date') DateTime? endedDate,
-    @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
+    @JsonKey(fromJson: stringFromAny, name: 'created_by') String? createdBy,
     Address? address,
     @JsonKey(name: 'is_foreign') bool? isForeign,
     @JsonKey(name: 'foreign_address') Address? foreignAddress,

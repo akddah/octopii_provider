@@ -60,7 +60,7 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       endedDate: json['ended_date'] == null
           ? null
           : DateTime.parse(json['ended_date'] as String),
-      createdBy: _stringFromAny(json['created_by']),
+      createdBy: stringFromAny(json['created_by']),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -103,7 +103,7 @@ Map<String, dynamic> _$$BookingResponseImplToJson(
       'country_code': instance.countryCode,
       'ended_date': instance.endedDate?.toIso8601String(),
       'created_by': instance.createdBy,
-      if (instance.address case final value?) 'address': value,
+      'address': instance.address,
       'is_foreign': instance.isForeign,
       'foreign_address': instance.foreignAddress,
       'foreign_customer': instance.foreignCustomer,

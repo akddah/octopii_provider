@@ -230,9 +230,8 @@ mixin _$BookingResponse {
   num? get countryCode => throw _privateConstructorUsedError;
   @JsonKey(name: 'ended_date')
   DateTime? get endedDate => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  @JsonKey(fromJson: stringFromAny, name: 'created_by')
   String? get createdBy => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
   Address? get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_foreign')
   bool? get isForeign => throw _privateConstructorUsedError;
@@ -285,8 +284,8 @@ abstract class $BookingResponseCopyWith<$Res> {
       @JsonKey(name: 'package_id') num? packageId,
       @JsonKey(name: 'country_code') num? countryCode,
       @JsonKey(name: 'ended_date') DateTime? endedDate,
-      @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
-      @JsonKey(includeIfNull: false) Address? address,
+      @JsonKey(fromJson: stringFromAny, name: 'created_by') String? createdBy,
+      Address? address,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') Address? foreignAddress,
       @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer});
@@ -560,8 +559,8 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       @JsonKey(name: 'package_id') num? packageId,
       @JsonKey(name: 'country_code') num? countryCode,
       @JsonKey(name: 'ended_date') DateTime? endedDate,
-      @JsonKey(fromJson: _stringFromAny, name: 'created_by') String? createdBy,
-      @JsonKey(includeIfNull: false) Address? address,
+      @JsonKey(fromJson: stringFromAny, name: 'created_by') String? createdBy,
+      Address? address,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') Address? foreignAddress,
       @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer});
@@ -776,8 +775,8 @@ class _$BookingResponseImpl implements _BookingResponse {
       @JsonKey(name: 'package_id') this.packageId,
       @JsonKey(name: 'country_code') this.countryCode,
       @JsonKey(name: 'ended_date') this.endedDate,
-      @JsonKey(fromJson: _stringFromAny, name: 'created_by') this.createdBy,
-      @JsonKey(includeIfNull: false) this.address,
+      @JsonKey(fromJson: stringFromAny, name: 'created_by') this.createdBy,
+      this.address,
       @JsonKey(name: 'is_foreign') this.isForeign,
       @JsonKey(name: 'foreign_address') this.foreignAddress,
       @JsonKey(name: 'foreign_customer') this.foreignCustomer})
@@ -868,10 +867,9 @@ class _$BookingResponseImpl implements _BookingResponse {
   @JsonKey(name: 'ended_date')
   final DateTime? endedDate;
   @override
-  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  @JsonKey(fromJson: stringFromAny, name: 'created_by')
   final String? createdBy;
   @override
-  @JsonKey(includeIfNull: false)
   final Address? address;
   @override
   @JsonKey(name: 'is_foreign')
@@ -1029,9 +1027,9 @@ abstract class _BookingResponse implements BookingResponse {
       @JsonKey(name: 'package_id') final num? packageId,
       @JsonKey(name: 'country_code') final num? countryCode,
       @JsonKey(name: 'ended_date') final DateTime? endedDate,
-      @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+      @JsonKey(fromJson: stringFromAny, name: 'created_by')
       final String? createdBy,
-      @JsonKey(includeIfNull: false) final Address? address,
+      final Address? address,
       @JsonKey(name: 'is_foreign') final bool? isForeign,
       @JsonKey(name: 'foreign_address') final Address? foreignAddress,
       @JsonKey(name: 'foreign_customer')
@@ -1105,10 +1103,9 @@ abstract class _BookingResponse implements BookingResponse {
   @JsonKey(name: 'ended_date')
   DateTime? get endedDate;
   @override
-  @JsonKey(fromJson: _stringFromAny, name: 'created_by')
+  @JsonKey(fromJson: stringFromAny, name: 'created_by')
   String? get createdBy;
   @override
-  @JsonKey(includeIfNull: false)
   Address? get address;
   @override
   @JsonKey(name: 'is_foreign')

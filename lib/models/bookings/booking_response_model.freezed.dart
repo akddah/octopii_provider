@@ -531,6 +531,8 @@ mixin _$BookingDetails {
   String? get citiesTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'area_title')
   String? get areaTitle => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+  String? get referenceId => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_foreign')
   bool? get isForeign => throw _privateConstructorUsedError;
   @JsonKey(name: 'foreign_address')
@@ -578,6 +580,8 @@ abstract class $BookingDetailsCopyWith<$Res> {
       @JsonKey(name: 'cities_id') int? citiesId,
       @JsonKey(name: 'cities_title') String? citiesTitle,
       @JsonKey(name: 'area_title') String? areaTitle,
+      @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+      String? referenceId,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') ForeignAddress? foreignAddress,
       @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer});
@@ -625,6 +629,7 @@ class _$BookingDetailsCopyWithImpl<$Res, $Val extends BookingDetails>
     Object? citiesId = freezed,
     Object? citiesTitle = freezed,
     Object? areaTitle = freezed,
+    Object? referenceId = freezed,
     Object? isForeign = freezed,
     Object? foreignAddress = freezed,
     Object? foreignCustomer = freezed,
@@ -722,6 +727,10 @@ class _$BookingDetailsCopyWithImpl<$Res, $Val extends BookingDetails>
           ? _value.areaTitle
           : areaTitle // ignore: cast_nullable_to_non_nullable
               as String?,
+      referenceId: freezed == referenceId
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
+              as String?,
       isForeign: freezed == isForeign
           ? _value.isForeign
           : isForeign // ignore: cast_nullable_to_non_nullable
@@ -812,6 +821,8 @@ abstract class _$$BookingDetailsImplCopyWith<$Res>
       @JsonKey(name: 'cities_id') int? citiesId,
       @JsonKey(name: 'cities_title') String? citiesTitle,
       @JsonKey(name: 'area_title') String? areaTitle,
+      @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+      String? referenceId,
       @JsonKey(name: 'is_foreign') bool? isForeign,
       @JsonKey(name: 'foreign_address') ForeignAddress? foreignAddress,
       @JsonKey(name: 'foreign_customer') ForeignCustomer? foreignCustomer});
@@ -860,6 +871,7 @@ class __$$BookingDetailsImplCopyWithImpl<$Res>
     Object? citiesId = freezed,
     Object? citiesTitle = freezed,
     Object? areaTitle = freezed,
+    Object? referenceId = freezed,
     Object? isForeign = freezed,
     Object? foreignAddress = freezed,
     Object? foreignCustomer = freezed,
@@ -957,6 +969,10 @@ class __$$BookingDetailsImplCopyWithImpl<$Res>
           ? _value.areaTitle
           : areaTitle // ignore: cast_nullable_to_non_nullable
               as String?,
+      referenceId: freezed == referenceId
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
+              as String?,
       isForeign: freezed == isForeign
           ? _value.isForeign
           : isForeign // ignore: cast_nullable_to_non_nullable
@@ -1000,6 +1016,8 @@ class _$BookingDetailsImpl implements _BookingDetails {
       @JsonKey(name: 'cities_id') this.citiesId,
       @JsonKey(name: 'cities_title') this.citiesTitle,
       @JsonKey(name: 'area_title') this.areaTitle,
+      @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+      this.referenceId,
       @JsonKey(name: 'is_foreign') this.isForeign,
       @JsonKey(name: 'foreign_address') this.foreignAddress,
       @JsonKey(name: 'foreign_customer') this.foreignCustomer})
@@ -1087,6 +1105,9 @@ class _$BookingDetailsImpl implements _BookingDetails {
   @JsonKey(name: 'area_title')
   final String? areaTitle;
   @override
+  @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+  final String? referenceId;
+  @override
   @JsonKey(name: 'is_foreign')
   final bool? isForeign;
   @override
@@ -1098,7 +1119,7 @@ class _$BookingDetailsImpl implements _BookingDetails {
 
   @override
   String toString() {
-    return 'BookingDetails(id: $id, sectorId: $sectorId, date: $date, status: $status, total: $total, totalPrice: $totalPrice, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceCost: $serviceCost, areasId: $areasId, payment: $payment, providers: $providers, services: $services, markup: $markup, basePrice: $basePrice, customerId: $customerId, customerPhone: $customerPhone, customerName: $customerName, countProvider: $countProvider, serviceDuration: $serviceDuration, citiesId: $citiesId, citiesTitle: $citiesTitle, areaTitle: $areaTitle, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
+    return 'BookingDetails(id: $id, sectorId: $sectorId, date: $date, status: $status, total: $total, totalPrice: $totalPrice, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceCost: $serviceCost, areasId: $areasId, payment: $payment, providers: $providers, services: $services, markup: $markup, basePrice: $basePrice, customerId: $customerId, customerPhone: $customerPhone, customerName: $customerName, countProvider: $countProvider, serviceDuration: $serviceDuration, citiesId: $citiesId, citiesTitle: $citiesTitle, areaTitle: $areaTitle, referenceId: $referenceId, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
   }
 
   @override
@@ -1144,6 +1165,8 @@ class _$BookingDetailsImpl implements _BookingDetails {
                 other.citiesTitle == citiesTitle) &&
             (identical(other.areaTitle, areaTitle) ||
                 other.areaTitle == areaTitle) &&
+            (identical(other.referenceId, referenceId) ||
+                other.referenceId == referenceId) &&
             (identical(other.isForeign, isForeign) ||
                 other.isForeign == isForeign) &&
             (identical(other.foreignAddress, foreignAddress) ||
@@ -1179,6 +1202,7 @@ class _$BookingDetailsImpl implements _BookingDetails {
         citiesId,
         citiesTitle,
         areaTitle,
+        referenceId,
         isForeign,
         foreignAddress,
         foreignCustomer
@@ -1226,6 +1250,8 @@ abstract class _BookingDetails implements BookingDetails {
       @JsonKey(name: 'cities_id') final int? citiesId,
       @JsonKey(name: 'cities_title') final String? citiesTitle,
       @JsonKey(name: 'area_title') final String? areaTitle,
+      @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+      final String? referenceId,
       @JsonKey(name: 'is_foreign') final bool? isForeign,
       @JsonKey(name: 'foreign_address') final ForeignAddress? foreignAddress,
       @JsonKey(name: 'foreign_customer')
@@ -1295,6 +1321,9 @@ abstract class _BookingDetails implements BookingDetails {
   @override
   @JsonKey(name: 'area_title')
   String? get areaTitle;
+  @override
+  @JsonKey(fromJson: stringFromAnyNull, name: 'reference_id')
+  String? get referenceId;
   @override
   @JsonKey(name: 'is_foreign')
   bool? get isForeign;

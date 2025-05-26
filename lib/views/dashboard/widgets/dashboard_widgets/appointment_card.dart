@@ -66,9 +66,9 @@ class AppointmentCard extends StatelessWidget {
                     //   ),
                     // ])),
                     Text.rich(TextSpan(children: [
-                      if (bookingDetails.id != null) ...[
+                      if (bookingDetails.referenceId != null) ...[
                         TextSpan(
-                          text: '#${bookingDetails.id}',
+                          text: '#${bookingDetails.referenceId}',
                           style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                 fontSize: 13.sp,
                                 fontWeight: AppDimensions.bold,

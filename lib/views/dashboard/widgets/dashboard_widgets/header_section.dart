@@ -85,7 +85,7 @@ class _HeaderSectionState extends State<HeaderSection> {
                   TextSpan(
                     children: <InlineSpan>[
                       TextSpan(
-                        text: '${state.userProfileData?.response.outstanding ?? 0}',
+                        text: '${state.userProfileData?.response.outstanding.toStringAsFixed(0) ?? 0}',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       WidgetSpan(
