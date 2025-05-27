@@ -88,7 +88,7 @@ class BookingCardView extends StatelessWidget {
                 ),
                 const Spacer(),
                 Visibility(
-                  visible: bookingDetails.payment?.status == PaymentStatus.paid,
+                  visible: bookingDetails.payment?.status.toLowerCase() == 'paid',
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

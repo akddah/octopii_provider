@@ -40,6 +40,7 @@
   "booked": "Booked",
   "showAll": "Show All",
   "upcomingBookings": "Upcoming Bookings",
+  "inprogressBookings": "Inprogress Bookings",
   "finishedBookings": "Finished Bookings",
   "payInCash": "Pay in Cash",
   "payWithCredit": "Pay With Credit",

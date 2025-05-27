@@ -42,6 +42,7 @@ abstract class  LocaleKeys {
   static const showAll = 'showAll';
   static const All = 'All';
   static const upcomingBookings = 'upcomingBookings';
+  static const inprogressBookings = 'inprogressBookings';
   static const finishedBookings = 'finishedBookings';
   static const payInCash = 'payInCash';
   static const payWithCredit = 'payWithCredit';

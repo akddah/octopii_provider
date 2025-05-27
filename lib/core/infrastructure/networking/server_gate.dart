@@ -169,6 +169,7 @@ class ServerGate {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? params,
     bool constantHeaders = true,
+    CancelToken? cancelToken,
   }) async {
     try {
       params?.removeWhere(
@@ -179,6 +180,7 @@ class ServerGate {
       );
       final Response<dynamic> res = await _dio.get(
         url.startsWith('http') ? url : "${await getDomain(takeOtherBaseurl)}/$url",
+        cancelToken: cancelToken,
         options: Options(
           headers: <String, dynamic>{
             if (headers != null) ...headers,

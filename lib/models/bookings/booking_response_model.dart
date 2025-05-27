@@ -22,6 +22,7 @@ class BookingResponseData with _$BookingResponseData {
     required List<BookingDetails> data,
     @JsonKey(name: 'last_page') required int? lastPage,
     @JsonKey(name: 'per_page') required int perPage,
+    @JsonKey(name: 'next_page_url') required String? nextPageUrl,
     int? to,
     int? total,
     num? from,
@@ -111,14 +112,8 @@ class ForeignCustomer with _$ForeignCustomer {
 @freezed
 class Payment with _$Payment {
   factory Payment({
-    @JsonKey(
-      fromJson: PaymentMethodExtension.fromJson,
-    )
-    required PaymentMethod method,
-    @JsonKey(
-      fromJson: PaymentStatusExtension.fromJson,
-    )
-    required PaymentStatus status,
+    @JsonKey(fromJson: PaymentMethodExtension.fromJson) required PaymentMethod method,
+    required String status,
   }) = _Payment;
 
   factory Payment.fromJson(Map<String, dynamic> json) => _$PaymentFromJson(json);

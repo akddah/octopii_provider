@@ -8,13 +8,13 @@ import 'app/octopii_provier_app.dart';
 import 'app_init.dart';
 import 'core/utils/utils/app_logger.dart';
 
-final String domain = kDebugMode ? 'mrreda' : '';
-final String phone = kDebugMode ? '01009828555' : '';
-final String password = kDebugMode ? 'Aa123123@' : '';
+// final String domain = kDebugMode ? 'mrreda' : '';
+// final String phone = kDebugMode ? '01009828555' : '';
+// final String password = kDebugMode ? 'Aa123123@' : '';
 //
-// final String domain = kDebugMode ? 'reda-new' : '';
-// final String phone = kDebugMode ? '01117246896' : '';
-// final String password = kDebugMode ? '123456' : '';
+final String domain = kDebugMode ? 'reda-new' : '';
+final String phone = kDebugMode ? '01117246896' : '';
+final String password = kDebugMode ? '123456' : '';
 //
 // final String domain = kDebugMode ? 'top-wash' : '';
 // final String phone = kDebugMode ? '01211000358' : '';

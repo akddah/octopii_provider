@@ -164,7 +164,7 @@ class AppointmentCard extends StatelessWidget {
             Row(
               children: <Widget>[
                 Visibility(
-                  visible: bookingDetails.payment?.status == PaymentStatus.paid,
+                  visible: bookingDetails.payment?.status.toLowerCase() == 'paid',
                   child: Row(
                     children: <Widget>[
                       Text(

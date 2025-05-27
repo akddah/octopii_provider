@@ -200,6 +200,8 @@ mixin _$BookingResponseData {
   int? get lastPage => throw _privateConstructorUsedError;
   @JsonKey(name: 'per_page')
   int get perPage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'next_page_url')
+  String? get nextPageUrl => throw _privateConstructorUsedError;
   int? get to => throw _privateConstructorUsedError;
   int? get total => throw _privateConstructorUsedError;
   num? get from => throw _privateConstructorUsedError;
@@ -225,6 +227,7 @@ abstract class $BookingResponseDataCopyWith<$Res> {
       List<BookingDetails> data,
       @JsonKey(name: 'last_page') int? lastPage,
       @JsonKey(name: 'per_page') int perPage,
+      @JsonKey(name: 'next_page_url') String? nextPageUrl,
       int? to,
       int? total,
       num? from});
@@ -249,6 +252,7 @@ class _$BookingResponseDataCopyWithImpl<$Res, $Val extends BookingResponseData>
     Object? data = null,
     Object? lastPage = freezed,
     Object? perPage = null,
+    Object? nextPageUrl = freezed,
     Object? to = freezed,
     Object? total = freezed,
     Object? from = freezed,
@@ -270,6 +274,10 @@ class _$BookingResponseDataCopyWithImpl<$Res, $Val extends BookingResponseData>
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
+      nextPageUrl: freezed == nextPageUrl
+          ? _value.nextPageUrl
+          : nextPageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -299,6 +307,7 @@ abstract class _$$BookingResponseDataImplCopyWith<$Res>
       List<BookingDetails> data,
       @JsonKey(name: 'last_page') int? lastPage,
       @JsonKey(name: 'per_page') int perPage,
+      @JsonKey(name: 'next_page_url') String? nextPageUrl,
       int? to,
       int? total,
       num? from});
@@ -321,6 +330,7 @@ class __$$BookingResponseDataImplCopyWithImpl<$Res>
     Object? data = null,
     Object? lastPage = freezed,
     Object? perPage = null,
+    Object? nextPageUrl = freezed,
     Object? to = freezed,
     Object? total = freezed,
     Object? from = freezed,
@@ -342,6 +352,10 @@ class __$$BookingResponseDataImplCopyWithImpl<$Res>
           ? _value.perPage
           : perPage // ignore: cast_nullable_to_non_nullable
               as int,
+      nextPageUrl: freezed == nextPageUrl
+          ? _value.nextPageUrl
+          : nextPageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -366,6 +380,7 @@ class _$BookingResponseDataImpl implements _BookingResponseData {
       required final List<BookingDetails> data,
       @JsonKey(name: 'last_page') required this.lastPage,
       @JsonKey(name: 'per_page') required this.perPage,
+      @JsonKey(name: 'next_page_url') required this.nextPageUrl,
       this.to,
       this.total,
       this.from})
@@ -392,6 +407,9 @@ class _$BookingResponseDataImpl implements _BookingResponseData {
   @JsonKey(name: 'per_page')
   final int perPage;
   @override
+  @JsonKey(name: 'next_page_url')
+  final String? nextPageUrl;
+  @override
   final int? to;
   @override
   final int? total;
@@ -400,7 +418,7 @@ class _$BookingResponseDataImpl implements _BookingResponseData {
 
   @override
   String toString() {
-    return 'BookingResponseData(currentPage: $currentPage, data: $data, lastPage: $lastPage, perPage: $perPage, to: $to, total: $total, from: $from)';
+    return 'BookingResponseData(currentPage: $currentPage, data: $data, lastPage: $lastPage, perPage: $perPage, nextPageUrl: $nextPageUrl, to: $to, total: $total, from: $from)';
   }
 
   @override
@@ -414,6 +432,8 @@ class _$BookingResponseDataImpl implements _BookingResponseData {
             (identical(other.lastPage, lastPage) ||
                 other.lastPage == lastPage) &&
             (identical(other.perPage, perPage) || other.perPage == perPage) &&
+            (identical(other.nextPageUrl, nextPageUrl) ||
+                other.nextPageUrl == nextPageUrl) &&
             (identical(other.to, to) || other.to == to) &&
             (identical(other.total, total) || other.total == total) &&
             (identical(other.from, from) || other.from == from));
@@ -427,6 +447,7 @@ class _$BookingResponseDataImpl implements _BookingResponseData {
       const DeepCollectionEquality().hash(_data),
       lastPage,
       perPage,
+      nextPageUrl,
       to,
       total,
       from);
@@ -454,6 +475,7 @@ abstract class _BookingResponseData implements BookingResponseData {
       required final List<BookingDetails> data,
       @JsonKey(name: 'last_page') required final int? lastPage,
       @JsonKey(name: 'per_page') required final int perPage,
+      @JsonKey(name: 'next_page_url') required final String? nextPageUrl,
       final int? to,
       final int? total,
       final num? from}) = _$BookingResponseDataImpl;
@@ -472,6 +494,9 @@ abstract class _BookingResponseData implements BookingResponseData {
   @override
   @JsonKey(name: 'per_page')
   int get perPage;
+  @override
+  @JsonKey(name: 'next_page_url')
+  String? get nextPageUrl;
   @override
   int? get to;
   @override
@@ -1977,8 +2002,7 @@ Payment _$PaymentFromJson(Map<String, dynamic> json) {
 mixin _$Payment {
   @JsonKey(fromJson: PaymentMethodExtension.fromJson)
   PaymentMethod get method => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-  PaymentStatus get status => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
 
   /// Serializes this Payment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1996,8 +2020,7 @@ abstract class $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(fromJson: PaymentMethodExtension.fromJson) PaymentMethod method,
-      @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-      PaymentStatus status});
+      String status});
 }
 
 /// @nodoc
@@ -2026,7 +2049,7 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PaymentStatus,
+              as String,
     ) as $Val);
   }
 }
@@ -2040,8 +2063,7 @@ abstract class _$$PaymentImplCopyWith<$Res> implements $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(fromJson: PaymentMethodExtension.fromJson) PaymentMethod method,
-      @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-      PaymentStatus status});
+      String status});
 }
 
 /// @nodoc
@@ -2068,7 +2090,7 @@ class __$$PaymentImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PaymentStatus,
+              as String,
     ));
   }
 }
@@ -2078,7 +2100,6 @@ class __$$PaymentImplCopyWithImpl<$Res>
 class _$PaymentImpl implements _Payment {
   _$PaymentImpl(
       {@JsonKey(fromJson: PaymentMethodExtension.fromJson) required this.method,
-      @JsonKey(fromJson: PaymentStatusExtension.fromJson)
       required this.status});
 
   factory _$PaymentImpl.fromJson(Map<String, dynamic> json) =>
@@ -2088,8 +2109,7 @@ class _$PaymentImpl implements _Payment {
   @JsonKey(fromJson: PaymentMethodExtension.fromJson)
   final PaymentMethod method;
   @override
-  @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-  final PaymentStatus status;
+  final String status;
 
   @override
   String toString() {
@@ -2129,8 +2149,7 @@ abstract class _Payment implements Payment {
   factory _Payment(
       {@JsonKey(fromJson: PaymentMethodExtension.fromJson)
       required final PaymentMethod method,
-      @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-      required final PaymentStatus status}) = _$PaymentImpl;
+      required final String status}) = _$PaymentImpl;
 
   factory _Payment.fromJson(Map<String, dynamic> json) = _$PaymentImpl.fromJson;
 
@@ -2138,8 +2157,7 @@ abstract class _Payment implements Payment {
   @JsonKey(fromJson: PaymentMethodExtension.fromJson)
   PaymentMethod get method;
   @override
-  @JsonKey(fromJson: PaymentStatusExtension.fromJson)
-  PaymentStatus get status;
+  String get status;
 
   /// Create a copy of Payment
   /// with the given fields replaced by the non-null parameter values.

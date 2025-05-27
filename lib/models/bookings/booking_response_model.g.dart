@@ -30,6 +30,7 @@ _$BookingResponseDataImpl _$$BookingResponseDataImplFromJson(
           .toList(),
       lastPage: (json['last_page'] as num?)?.toInt(),
       perPage: (json['per_page'] as num).toInt(),
+      nextPageUrl: json['next_page_url'] as String?,
       to: (json['to'] as num?)?.toInt(),
       total: (json['total'] as num?)?.toInt(),
       from: json['from'] as num?,
@@ -42,6 +43,7 @@ Map<String, dynamic> _$$BookingResponseDataImplToJson(
       'data': instance.data,
       'last_page': instance.lastPage,
       'per_page': instance.perPage,
+      'next_page_url': instance.nextPageUrl,
       'to': instance.to,
       'total': instance.total,
       'from': instance.from,
@@ -177,25 +179,19 @@ Map<String, dynamic> _$$ForeignCustomerImplToJson(
 _$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) =>
     _$PaymentImpl(
       method: PaymentMethodExtension.fromJson(json['method'] as String),
-      status: PaymentStatusExtension.fromJson(json['status'] as String),
+      status: json['status'] as String,
     );
 
 Map<String, dynamic> _$$PaymentImplToJson(_$PaymentImpl instance) =>
     <String, dynamic>{
       'method': _$PaymentMethodEnumMap[instance.method]!,
-      'status': _$PaymentStatusEnumMap[instance.status]!,
+      'status': instance.status,
     };
 
 const _$PaymentMethodEnumMap = {
   PaymentMethod.cash: 'cash',
   PaymentMethod.card: 'card',
   PaymentMethod.other: 'other',
-};
-
-const _$PaymentStatusEnumMap = {
-  PaymentStatus.unpaid: 'unpaid',
-  PaymentStatus.paid: 'paid',
-  PaymentStatus.pending: 'pending',
 };
 
 _$ProviderImpl _$$ProviderImplFromJson(Map<String, dynamic> json) =>

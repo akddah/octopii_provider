@@ -1,73 +1,29 @@
 part of 'booking_list_cubit.dart';
 
-enum BookingStateStatus { initial, loading, loaded, error }
-
-extension BookingListStateX on BookingListState {
-  bool get isInitial => status == BookingStateStatus.initial;
-
-  bool get isLoading => status == BookingStateStatus.loading;
-
-  bool get isLoaded => status == BookingStateStatus.loaded;
-
-  bool get isError => status == BookingStateStatus.error;
-}
-
-@immutable
-final class BookingListState {
-  final BookingStateStatus status;
-  final String? errorMsg;
-  final List<BookingDetails>? finishedBookingResponseModel;
-  final List<BookingDetails>? upComingdBookingResponseModel;
-  final bool? isLoadingMoreFinishedBooking;
-  final bool? hasMoreDataFinishedBooking;
-  final bool? isLoadingMoreUpComingdBooking;
-  final bool? hasMoreDataUpComingdBooking;
+class BookingListState {
+  final RequestState getBookingsState;
+  final RequestState pagingBookingsState;
+  final String msg;
+  final ErrorType errorType;
 
   const BookingListState({
-    required this.status,
-    this.finishedBookingResponseModel,
-    this.upComingdBookingResponseModel,
-    this.errorMsg,
-    this.isLoadingMoreFinishedBooking = false,
-    this.hasMoreDataFinishedBooking = true,
-    this.isLoadingMoreUpComingdBooking = false,
-    this.hasMoreDataUpComingdBooking = true,
+    this.getBookingsState = RequestState.initial,
+    this.pagingBookingsState = RequestState.initial,
+    this.msg = '',
+    this.errorType = ErrorType.none,
   });
 
   BookingListState copyWith({
-    BookingStateStatus? status,
-    String? errorMsg,
-    List<BookingDetails>? finishedBookingResponseModel,
-    List<BookingDetails>? upComingdBookingResponseModel,
-    int? bookingHistory,
-    bool? isLoadingMoreFinishedBooking,
-    bool? hasMoreDataFinishedBooking,
-    bool? isLoadingMoreUpComingdBooking,
-    bool? hasMoreDataUpComingdBooking,
+    RequestState? getBookingsState,
+    RequestState? pagingBookingsState,
+    String? msg,
+    ErrorType? errorType,
   }) {
     return BookingListState(
-      status: status ?? this.status,
-      errorMsg: errorMsg ?? this.errorMsg,
-      finishedBookingResponseModel: finishedBookingResponseModel ?? this.finishedBookingResponseModel,
-      upComingdBookingResponseModel: upComingdBookingResponseModel ?? this.upComingdBookingResponseModel,
-      isLoadingMoreFinishedBooking: isLoadingMoreFinishedBooking ?? this.isLoadingMoreFinishedBooking,
-      hasMoreDataFinishedBooking: hasMoreDataFinishedBooking ?? this.hasMoreDataFinishedBooking,
-      isLoadingMoreUpComingdBooking: isLoadingMoreUpComingdBooking ?? this.isLoadingMoreUpComingdBooking,
-      hasMoreDataUpComingdBooking: hasMoreDataUpComingdBooking ?? this.hasMoreDataUpComingdBooking,
+      getBookingsState: getBookingsState ?? this.getBookingsState,
+      pagingBookingsState: pagingBookingsState ?? this.pagingBookingsState,
+      msg: msg ?? this.msg,
+      errorType: errorType ?? this.errorType,
     );
-  }
-
-  @override
-  String toString() {
-    return 'BookingListState('
-        'states: $status, '
-        'errorMsg: $errorMsg, '
-        'finishedBookingResponseModel: $finishedBookingResponseModel, '
-        'upComingdBookingResponseModel: $upComingdBookingResponseModel, '
-        'isLoadingMoreFinishedBooking: $isLoadingMoreFinishedBooking, '
-        'hasMoreDataFinishedBooking: $hasMoreDataFinishedBooking, '
-        'isLoadingMoreUpComingdBooking: $isLoadingMoreUpComingdBooking, '
-        'hasMoreDataUpComingdBooking: $hasMoreDataUpComingdBooking, '
-        ')';
   }
 }
