@@ -37,10 +37,10 @@ class _BookingScreenState extends State<BookingScreen> {
               tabBarItems: <String>[
                 LocaleKeys.upcomingBookings.tr(),
                 LocaleKeys.inprogressBookings.tr(),
-                LocaleKeys.finishedBookings.tr(),
+                // LocaleKeys.finishedBookings.tr(),
               ],
               tabViewItems: List.generate(
-                3,
+                2,
                 (i) => BookingsListWidget(key: Key('$i'), status: i),
               ),
             ),
