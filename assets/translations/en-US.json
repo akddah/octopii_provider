@@ -210,5 +210,11 @@
   "h": "H",
   "min": "Min",
   "discount": "Discount",
-  "orderActionsMsg": "The order action will become available 30 minutes before the scheduled time."
+  "orderActionsMsg": "The order action will become available 30 minutes before the scheduled time.",
+  "locationName": "Location name",
+  "streetName": "Street name",
+  "buildingNumber": "Building Number",
+  "floorNumber": "Floor Number",
+  "unitNumber": "Unit Number",
+  "notes": "Notes"
 }

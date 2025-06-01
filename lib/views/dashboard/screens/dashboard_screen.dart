@@ -107,7 +107,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: AppStaticButton(
                             width: 353.w,
                             height: 34.h,
-                            onTap: () => cubit.fetchMoreBooking(),
+                            onTap: () => state.upComingdBookingResponseModel?.isNotEmpty == true ? cubit.fetchMoreBooking() : cubit.getBookingList(),
                             borderColor: Theme.of(context).colorScheme.primary,
                             buttonName: state.isLoadingMore! ? LocaleKeys.loading.tr() : LocaleKeys.showAll.tr(),
                           ),

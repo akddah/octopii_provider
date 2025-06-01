@@ -11,7 +11,7 @@ import 'package:octopii_provier_app/gen/assets.gen.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
 import 'package:octopii_provier_app/views/booking_details/cubits/update_booking_status_cubit/update_booking_status_cubit.dart';
-import 'package:octopii_provier_app/views/booking_details/widgets/booking_details_widgets/index.dart';
+import 'package:octopii_provier_app/views/booking_details/widgets/index.dart';
 
 class BookingStatusWidget extends StatelessWidget {
   const BookingStatusWidget({super.key, this.bookingResponse});

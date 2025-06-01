@@ -32,14 +32,14 @@
       app links:
 
 
-git cherry-pick -e <commit-hash>
-                                                                                                         
-git init;
-git add README.md;
-git commit -m "first commit";
-git branch -M main;
-git remote add origin https://github.com/akddah/octopii_provider.git;
-git push -u origin main;
+      git cherry-pick -e <commit-hash>
+                                                                                                            
+      git init;
+      git add README.md;
+      git commit -m "first commit";
+      git branch -M main;
+      git remote add origin https://github.com/akddah/octopii_provider.git;
+      git push -u origin main;
 
 
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/common_widgets/error_widget.dart';
-import '../../../../core/extensions/booking_status_extension.dart';
-import '../../../../core/extensions/widgets_extensions.dart';
-import '../../../../core/utils/extensions.dart';
-import '../../../../core/utils/utils/app_logger.dart';
-import '../../cubits/booking_details_cubit/booking_details_cubit.dart';
-import '../../shimmers/booking_details_shimmer_widget.dart';
+import '../../../core/common_widgets/error_widget.dart';
+import '../../../core/extensions/booking_status_extension.dart';
+import '../../../core/extensions/widgets_extensions.dart';
+import '../../../core/utils/extensions.dart';
+import '../../../core/utils/utils/app_logger.dart';
+import '../cubits/booking_details_cubit/booking_details_cubit.dart';
+import '../shimmers/booking_details_shimmer_widget.dart';
 import 'index.dart';
 
 class BookingDetailsBody extends StatelessWidget {

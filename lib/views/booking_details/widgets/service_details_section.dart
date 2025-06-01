@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:octopii_provier_app/core/utils/extensions.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
-import 'package:octopii_provier_app/views/booking_details/widgets/booking_details_widgets/index.dart';
+import 'package:octopii_provier_app/views/booking_details/widgets/index.dart';
 
 class ServiceDetailsSection extends StatelessWidget {
   const ServiceDetailsSection({

@@ -19,6 +19,20 @@ class BookingDetailsData with _$BookingDetailsData {
 Object? readIdValue(Map<dynamic, dynamic> json, String key) => json['customer_id'] ?? json['customer_id'];
 String stringFromAny(dynamic value) => value?.toString() ?? '';
 String? stringFromAnyNull(dynamic value) => value?.toString();
+String? datefromJson(dynamic value) => value?.toString();
+
+DateTime? dateNullFromJson(dynamic value) {
+  try {
+    if (value == null) {
+      return value;
+    } else {
+      return DateTime.tryParse(value?.toString() ?? '');
+    }
+  } catch (e) {
+    // _firebaseCrashlytics.jsonToDartRecordError(e, StackTrace.current, attribute, jsonEncode(json ?? {}), "date_from_json");
+    return null;
+  }
+}
 
 @freezed
 class BookingResponse with _$BookingResponse {
@@ -40,7 +54,7 @@ class BookingResponse with _$BookingResponse {
     @JsonKey(name: 'service_duration') required double? serviceDuration,
     @JsonKey(name: 'service_cost') required String? serviceCost,
     @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue) required BookingStatus bookingStatus,
-    @JsonKey(name: 'created_at') required DateTime? createdAt,
+    @JsonKey(fromJson: dateNullFromJson, name: 'created_at') required DateTime? createdAt,
     @JsonKey(name: 'customer_phone') String? customerPhone,
     num? basePrice,
     String? feedback,
@@ -114,8 +128,10 @@ class Address with _$Address {
     @JsonKey(name: 'building_number') String? buildingNumber,
     @JsonKey(name: 'floor_number') String? floorNumber,
     @JsonKey(name: 'unit_number') String? unitNumber,
+    // @JsonKey(name: 'unit_type') int? unitType,
+    // @JsonKey(name: 'unit_size') int? unitSize,
     String? notes,
-    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(fromJson: dateNullFromJson, name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'deleted_at') DateTime? deletedAt,
     @JsonKey(name: 'lat') String? latitude,

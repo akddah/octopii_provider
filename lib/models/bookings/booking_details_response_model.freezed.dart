@@ -217,7 +217,7 @@ mixin _$BookingResponse {
   String? get serviceCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
   BookingStatus get bookingStatus => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer_phone')
   String? get customerPhone => throw _privateConstructorUsedError;
@@ -276,7 +276,8 @@ abstract class $BookingResponseCopyWith<$Res> {
       @JsonKey(
           name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
       BookingStatus bookingStatus,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      DateTime? createdAt,
       @JsonKey(name: 'customer_phone') String? customerPhone,
       num? basePrice,
       String? feedback,
@@ -551,7 +552,8 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       @JsonKey(
           name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
       BookingStatus bookingStatus,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      DateTime? createdAt,
       @JsonKey(name: 'customer_phone') String? customerPhone,
       num? basePrice,
       String? feedback,
@@ -767,7 +769,8 @@ class _$BookingResponseImpl implements _BookingResponse {
       @JsonKey(
           name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
       required this.bookingStatus,
-      @JsonKey(name: 'created_at') required this.createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      required this.createdAt,
       @JsonKey(name: 'customer_phone') this.customerPhone,
       this.basePrice,
       this.feedback,
@@ -846,7 +849,7 @@ class _$BookingResponseImpl implements _BookingResponse {
   @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
   final BookingStatus bookingStatus;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   final DateTime? createdAt;
   @override
   @JsonKey(name: 'customer_phone')
@@ -1019,7 +1022,8 @@ abstract class _BookingResponse implements BookingResponse {
       @JsonKey(
           name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
       required final BookingStatus bookingStatus,
-      @JsonKey(name: 'created_at') required final DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      required final DateTime? createdAt,
       @JsonKey(name: 'customer_phone') final String? customerPhone,
       final num? basePrice,
       final String? feedback,
@@ -1082,7 +1086,7 @@ abstract class _BookingResponse implements BookingResponse {
   @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
   BookingStatus get bookingStatus;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   DateTime? get createdAt;
   @override
   @JsonKey(name: 'customer_phone')
@@ -1821,9 +1825,11 @@ mixin _$Address {
   @JsonKey(name: 'floor_number')
   String? get floorNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'unit_number')
-  String? get unitNumber => throw _privateConstructorUsedError;
+  String? get unitNumber =>
+      throw _privateConstructorUsedError; // @JsonKey(name: 'unit_type') int? unitType,
+// @JsonKey(name: 'unit_size') int? unitSize,
   String? get notes => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -1856,7 +1862,8 @@ abstract class $AddressCopyWith<$Res> {
       @JsonKey(name: 'floor_number') String? floorNumber,
       @JsonKey(name: 'unit_number') String? unitNumber,
       String? notes,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'deleted_at') DateTime? deletedAt,
       @JsonKey(name: 'lat') String? latitude,
@@ -1959,7 +1966,8 @@ abstract class _$$AddressImplCopyWith<$Res> implements $AddressCopyWith<$Res> {
       @JsonKey(name: 'floor_number') String? floorNumber,
       @JsonKey(name: 'unit_number') String? unitNumber,
       String? notes,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'deleted_at') DateTime? deletedAt,
       @JsonKey(name: 'lat') String? latitude,
@@ -2056,7 +2064,7 @@ class _$AddressImpl implements _Address {
       @JsonKey(name: 'floor_number') this.floorNumber,
       @JsonKey(name: 'unit_number') this.unitNumber,
       this.notes,
-      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'deleted_at') this.deletedAt,
       @JsonKey(name: 'lat') this.latitude,
@@ -2082,10 +2090,12 @@ class _$AddressImpl implements _Address {
   @override
   @JsonKey(name: 'unit_number')
   final String? unitNumber;
+// @JsonKey(name: 'unit_type') int? unitType,
+// @JsonKey(name: 'unit_size') int? unitSize,
   @override
   final String? notes;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   final DateTime? createdAt;
   @override
   @JsonKey(name: 'updated_at')
@@ -2176,7 +2186,8 @@ abstract class _Address implements Address {
       @JsonKey(name: 'floor_number') final String? floorNumber,
       @JsonKey(name: 'unit_number') final String? unitNumber,
       final String? notes,
-      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
+      final DateTime? createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
       @JsonKey(name: 'deleted_at') final DateTime? deletedAt,
       @JsonKey(name: 'lat') final String? latitude,
@@ -2200,11 +2211,12 @@ abstract class _Address implements Address {
   String? get floorNumber;
   @override
   @JsonKey(name: 'unit_number')
-  String? get unitNumber;
+  String? get unitNumber; // @JsonKey(name: 'unit_type') int? unitType,
+// @JsonKey(name: 'unit_size') int? unitSize,
   @override
   String? get notes;
   @override
-  @JsonKey(name: 'created_at')
+  @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   DateTime? get createdAt;
   @override
   @JsonKey(name: 'updated_at')

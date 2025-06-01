@@ -13,7 +13,6 @@ import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:octopii_provier_app/main.dart';
 import 'package:octopii_provier_app/models/login/login_request_model.dart';
-import 'package:octopii_provier_app/views/auth/country_list/cubits/get_country_list_cubit/get_country_list_cubit.dart';
 import 'package:octopii_provier_app/views/auth/country_list/widgets/country_list_widgets/country_view.dart';
 import 'package:octopii_provier_app/views/auth/forgot_password/cubits/request_otp_cubit/request_otp_cubit.dart';
 import 'package:octopii_provier_app/views/auth/forgot_password/wigdets/forgot_password_widgets/request_opt_listener_widget.dart';
@@ -98,7 +97,6 @@ class ForgotPasswordBody extends HookWidget {
             onTap: () => context.read<RequestOtpCubit>().requestOtp(
                   requestModel: GenericLoginRequestModel(
                     phone: phoneNumberController.text,
-                    countryId: context.read<GetCountryListCubit>().state.countryData!.id,
                     password: null,
                     otp: null,
                   ),

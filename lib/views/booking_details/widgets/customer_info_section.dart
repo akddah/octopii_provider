@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:octopii_provier_app/core/const/dimensions.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
+import 'package:octopii_provier_app/views/booking_details/widgets/location_info_widget.dart';
 
 class CustomerInfoSection extends StatelessWidget {
   const CustomerInfoSection({
@@ -68,16 +69,7 @@ class CustomerInfoSection extends StatelessWidget {
                   SizedBox(
                     height: 6.h,
                   ),
-                  Text(
-                    [
-                      if (address.locationName != null) address.locationName,
-                      if (address.streetName != null) address.streetName,
-                      if (address.buildingNumber != null) "${LocaleKeys.building.tr()} ${address.buildingNumber}",
-                      if (address.floorNumber != null) "${LocaleKeys.floor.tr()}${address.floorNumber}",
-                      if (address.unitNumber != null) "${LocaleKeys.appartment_no.tr()} ${address.unitNumber}"
-                    ].join(', '),
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  LocationInfoWidget(address: address),
                 ],
                 SizedBox(
                   height: 8.h,

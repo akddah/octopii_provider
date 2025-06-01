@@ -9,7 +9,7 @@ import '../../../core/theme/app_system_ui_overlay_styles.dart';
 import '../cubits/add_payment_cubit/add_payment_cubit.dart';
 import '../cubits/booking_details_cubit/booking_details_cubit.dart';
 import 'package:octopii_provier_app/views/booking_details/cubits/update_booking_status_cubit/update_booking_status_cubit.dart';
-import 'package:octopii_provier_app/views/booking_details/widgets/booking_details_widgets/index.dart';
+import 'package:octopii_provier_app/views/booking_details/widgets/index.dart';
 
 class BookingDetailsScreen extends StatelessWidget {
   const BookingDetailsScreen({

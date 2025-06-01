@@ -48,9 +48,7 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       serviceCost: json['service_cost'] as String?,
       bookingStatus: BookingStatusExtension.fromValue(
           (json['booking_status'] as num?)?.toInt()),
-      createdAt: json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+      createdAt: dateNullFromJson(json['created_at']),
       customerPhone: json['customer_phone'] as String?,
       basePrice: json['basePrice'] as num?,
       feedback: json['feedback'] as String?,
@@ -188,9 +186,7 @@ _$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
       floorNumber: json['floor_number'] as String?,
       unitNumber: json['unit_number'] as String?,
       notes: json['notes'] as String?,
-      createdAt: json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
+      createdAt: dateNullFromJson(json['created_at']),
       updatedAt: json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String),

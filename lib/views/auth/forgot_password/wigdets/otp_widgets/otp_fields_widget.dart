@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui' as dir;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ import 'package:octopii_provier_app/views/auth/forgot_password/cubits/verify_otp
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpFieldsWidget extends StatefulWidget {
-  const OtpFieldsWidget({required this.phoneNumber,required this.countryCode ,super.key});
+  const OtpFieldsWidget({required this.phoneNumber, required this.countryCode, super.key});
 
   final String phoneNumber;
   final int countryCode;
@@ -29,8 +30,7 @@ class OtpFieldsWidget extends StatefulWidget {
   State<OtpFieldsWidget> createState() => _OtpFieldsWidgetState();
 }
 
-class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
-    with TickerProviderStateMixin {
+class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderStateMixin {
   late final TextEditingController pinCodeEditingController;
   late final StreamController<ErrorAnimationType> errorController;
   late final FocusNode focusNode;
@@ -67,7 +67,7 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
                 message: '',
                 description: '${LocaleKeys.loginSuccessWelcomeMessage.tr()} ${state.loginResponse?.user.name}',
               );
-              context.push(RouteNames.addNewPassword,arguments: {"countryCode":widget.countryCode});
+              context.push(RouteNames.addNewPassword, arguments: {"countryCode": widget.countryCode});
             } else {
               ToastManager().error(
                 context: context,
@@ -89,7 +89,6 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
     context.read<RequestOtpCubit>().requestOtp(
           requestModel: GenericLoginRequestModel(
             phone: widget.phoneNumber,
-            countryId: widget.countryCode,
             password: null,
             otp: null,
           ),
@@ -116,6 +115,7 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
     focusNode.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -218,9 +218,7 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
                     TextSpan(
                       text: '$_countDownTime',
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .surfaceContainerLowest,
+                            color: Theme.of(context).colorScheme.surfaceContainerLowest,
                           ),
                     )
                   else
@@ -235,8 +233,7 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget>
                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
                             color: Theme.of(context).colorScheme.primary,
                           ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = countDownIsRunning ? null : startTimer,
+                      recognizer: TapGestureRecognizer()..onTap = countDownIsRunning ? null : startTimer,
                     )
                   else
                     const WidgetSpan(

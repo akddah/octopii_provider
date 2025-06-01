@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GenericLoginRequestModel {
   String get phone => throw _privateConstructorUsedError;
-  @JsonKey(name: 'country_id')
-  int get countryId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'country_id', defaultValue: 1)
+  int? get countryId => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get otp => throw _privateConstructorUsedError;
   @JsonKey(name: 'device_type', includeIfNull: false)
@@ -44,7 +44,7 @@ abstract class $GenericLoginRequestModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String phone,
-      @JsonKey(name: 'country_id') int countryId,
+      @JsonKey(name: 'country_id', defaultValue: 1) int? countryId,
       String? password,
       String? otp,
       @JsonKey(name: 'device_type', includeIfNull: false) String? deviceType,
@@ -68,7 +68,7 @@ class _$GenericLoginRequestModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? phone = null,
-    Object? countryId = null,
+    Object? countryId = freezed,
     Object? password = freezed,
     Object? otp = freezed,
     Object? deviceType = freezed,
@@ -79,10 +79,10 @@ class _$GenericLoginRequestModelCopyWithImpl<$Res,
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      countryId: null == countryId
+      countryId: freezed == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ abstract class _$$GenericLoginRequestModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String phone,
-      @JsonKey(name: 'country_id') int countryId,
+      @JsonKey(name: 'country_id', defaultValue: 1) int? countryId,
       String? password,
       String? otp,
       @JsonKey(name: 'device_type', includeIfNull: false) String? deviceType,
@@ -137,7 +137,7 @@ class __$$GenericLoginRequestModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phone = null,
-    Object? countryId = null,
+    Object? countryId = freezed,
     Object? password = freezed,
     Object? otp = freezed,
     Object? deviceType = freezed,
@@ -148,10 +148,10 @@ class __$$GenericLoginRequestModelImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      countryId: null == countryId
+      countryId: freezed == countryId
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class __$$GenericLoginRequestModelImplCopyWithImpl<$Res>
 class _$GenericLoginRequestModelImpl implements _GenericLoginRequestModel {
   const _$GenericLoginRequestModelImpl(
       {required this.phone,
-      @JsonKey(name: 'country_id') required this.countryId,
+      @JsonKey(name: 'country_id', defaultValue: 1) this.countryId,
       required this.password,
       required this.otp,
       @JsonKey(name: 'device_type', includeIfNull: false) this.deviceType,
@@ -186,8 +186,8 @@ class _$GenericLoginRequestModelImpl implements _GenericLoginRequestModel {
   @override
   final String phone;
   @override
-  @JsonKey(name: 'country_id')
-  final int countryId;
+  @JsonKey(name: 'country_id', defaultValue: 1)
+  final int? countryId;
   @override
   final String? password;
   @override
@@ -246,7 +246,7 @@ class _$GenericLoginRequestModelImpl implements _GenericLoginRequestModel {
 abstract class _GenericLoginRequestModel implements GenericLoginRequestModel {
   const factory _GenericLoginRequestModel(
       {required final String phone,
-      @JsonKey(name: 'country_id') required final int countryId,
+      @JsonKey(name: 'country_id', defaultValue: 1) final int? countryId,
       required final String? password,
       required final String? otp,
       @JsonKey(name: 'device_type', includeIfNull: false)
@@ -257,8 +257,8 @@ abstract class _GenericLoginRequestModel implements GenericLoginRequestModel {
   @override
   String get phone;
   @override
-  @JsonKey(name: 'country_id')
-  int get countryId;
+  @JsonKey(name: 'country_id', defaultValue: 1)
+  int? get countryId;
   @override
   String? get password;
   @override

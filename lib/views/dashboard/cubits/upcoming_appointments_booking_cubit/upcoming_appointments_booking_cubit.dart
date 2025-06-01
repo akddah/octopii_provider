@@ -45,7 +45,7 @@ class UpcomingAppointmentsBookingCubit extends Cubit<UpcomingAppointmentsBooking
     // Fetch data
     final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.bookings),
-      params: <String, dynamic>{'history': 0, 'page': currentPage},
+      params: {'status': 0},
     );
 
     switch (result.responseState) {
@@ -85,7 +85,7 @@ class UpcomingAppointmentsBookingCubit extends Cubit<UpcomingAppointmentsBooking
 
     final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.bookings),
-      params: <String, dynamic>{'history': 0, 'page': currentPage},
+      params: {'status': 0, 'page': currentPage},
     );
 
     switch (result.responseState) {
