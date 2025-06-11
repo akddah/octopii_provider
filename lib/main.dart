@@ -12,13 +12,16 @@ import 'core/utils/utils/app_logger.dart';
 // final String phone = kDebugMode ? '01009828555' : '';
 // final String password = kDebugMode ? 'Aa123123@' : '';
 //
-final String domain = kDebugMode ? 'reda-new' : '';
-final String phone = kDebugMode ? '01117246896' : '';
-final String password = kDebugMode ? '123456' : '';
+// final String domain = kDebugMode ? 'reda-new' : '';
+// final String phone = kDebugMode ? '01117246896' : '';
+// final String password = kDebugMode ? '123456' : '';
 //
 // final String domain = kDebugMode ? 'top-wash' : '';
 // final String phone = kDebugMode ? '01211000358' : '';
 // final String password = kDebugMode ? '123456' : '';
+final String domain = kDebugMode ? 'alsalam-care' : '';
+final String phone = kDebugMode ? '01012416781' : '';
+final String password = kDebugMode ? '123456Aa@' : '';
 Future<void> main() async {
   await runZonedGuarded(() async {
     await AppInit().beforeAppInit();

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -61,7 +60,6 @@ class LoginCubit extends Cubit<LoginState> {
           DatabaseConstants.tokenKey,
           loginResponse.authorization.token!,
         );
-
         emit(
           state.copyWith(
             states: LoginStates.loaded,
