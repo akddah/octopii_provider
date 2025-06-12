@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
+import 'package:octopii_provier_app/core/const/database_constants.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
+import 'package:octopii_provier_app/core/helpers/shared_pref_helper.dart';
 import 'package:octopii_provier_app/core/infrastructure/networking/server_gate.dart';
 import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
 import 'package:octopii_provier_app/models/profile/user_profile_response_model.dart';
@@ -13,6 +15,8 @@ class UserProfileCubit extends Cubit<UserProfileState> {
   UserProfileCubit() : super(const UserProfileState(status: GenericStateStatus.initial));
 
   Future<void> getUserProfileData() async {
+    final String? cachedAuthToken = await SharedPrefHelper().getSecuredToken(DatabaseConstants.tokenKey);
+    if (cachedAuthToken?.isNotEmpty != true) return;
     emit(
       state.copyWith(
         status: GenericStateStatus.loading,

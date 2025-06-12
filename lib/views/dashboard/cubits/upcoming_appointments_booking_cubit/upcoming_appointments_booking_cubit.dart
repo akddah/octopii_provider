@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
+import 'package:octopii_provier_app/core/const/database_constants.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
+import 'package:octopii_provier_app/core/helpers/shared_pref_helper.dart';
 import 'package:octopii_provier_app/core/infrastructure/networking/server_gate.dart';
 import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
 import 'package:octopii_provier_app/models/bookings/booking_response_model.dart';
@@ -36,6 +38,8 @@ class UpcomingAppointmentsBookingCubit extends Cubit<UpcomingAppointmentsBooking
   final ScrollController scrollController = ScrollController();
 
   Future<void> getBookingList() async {
+    final String? cachedAuthToken = await SharedPrefHelper().getSecuredToken(DatabaseConstants.tokenKey);
+    if (cachedAuthToken?.isNotEmpty != true) return;
     currentPage = 1;
     isLoadingMore = false;
     hasMoreData = true;

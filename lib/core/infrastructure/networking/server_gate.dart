@@ -3,10 +3,15 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
+import 'package:octopii_provier_app/core/extensions/navigation.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
+import 'package:octopii_provier_app/core/helpers/shared_pref_helper.dart';
 import 'package:octopii_provier_app/core/infrastructure/networking/app_iterceptor.dart';
+import 'package:octopii_provier_app/core/navigation/app_router.dart';
+import 'package:octopii_provier_app/core/navigation/route_names.dart';
 import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
 import 'package:octopii_provier_app/gen/locale_keys.g.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -354,6 +359,15 @@ class ServerGate {
           msg: kDebugMode ? '${err.response!.data}' : LocaleKeys.somethingWentWrongPleaseTryAgain.tr(),
         );
       } else if (err.response?.statusCode == 401) {
+        Future.sync(() async {
+          await SharedPrefHelper().deleteUser();
+          await SharedPrefHelper().clearAllSecuredData();
+          await navigatorKey.currentContext!.pushNamedAndRemoveUntil(
+            RouteNames.splash,
+            predicate: (Route<dynamic> route) => false,
+          );
+        });
+
         final Map<String, dynamic> responseData = err.response!.data as Map<String, dynamic>;
 
         return CustomResponse<T>(

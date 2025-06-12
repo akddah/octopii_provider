@@ -60,9 +60,9 @@ class _SetDomainSheetState extends State<SetDomainSheet> {
                   UnconstrainedBox(
                     child: CustomButton(
                       onTap: () {
-                        if (textController.text.isNotEmpty) {
+                        if (textController.text.trim().isNotEmpty) {
                           SharedPreferences.getInstance().then((SharedPreferences v) {
-                            v.setString('domain', textController.text);
+                            v.setString('domain', textController.text.trim());
                             Navigator.pop(context);
                           });
                         }

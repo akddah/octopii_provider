@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:octopii_provier_app/core/extensions/booking_status_extension.dart';
 import 'package:octopii_provier_app/models/bookings/booking_details_response_model.dart';
+import 'package:octopii_provier_app/views/booking_details/cubits/update_booking_status_cubit/update_booking_status_cubit.dart';
+import 'package:octopii_provier_app/views/booking_details/widgets/index.dart';
+
 import '../../../core/common_widgets/application_app_bar_back_button.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_system_ui_overlay_styles.dart';
 import '../cubits/add_payment_cubit/add_payment_cubit.dart';
 import '../cubits/booking_details_cubit/booking_details_cubit.dart';
-import 'package:octopii_provier_app/views/booking_details/cubits/update_booking_status_cubit/update_booking_status_cubit.dart';
-import 'package:octopii_provier_app/views/booking_details/widgets/index.dart';
 
 class BookingDetailsScreen extends StatelessWidget {
   const BookingDetailsScreen({
@@ -70,7 +71,7 @@ class BookingDetailsScreen extends StatelessWidget {
       final now = DateTime.now();
       final halfHourBeforeOrder = orderTime.subtract(Duration(minutes: 30));
 
-      if (now.isAfter(halfHourBeforeOrder) && now.isBefore(orderTime)) {
+      if (now.isAfter(halfHourBeforeOrder)) {
         return bookingResponse.response!.bookingStatus.isConfirmed || bookingResponse.response!.bookingStatus.isStarted;
       } else {
         return false;

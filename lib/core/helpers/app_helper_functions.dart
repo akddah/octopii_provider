@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../views/holidays/cubits/list_holidays_cubit/list_holidays_cubit.dart';
-import '../../views/layout/cubit/home_page_layout_cubit.dart';
-import '../../views/notifications/cubits/get_notifications_cubit/get_notifications_cubit.dart';
-import '../../views/profile/cubits/get_user_profile_cubit/user_profile_cubit.dart';
 import '../const/database_constants.dart';
 import '../di/di.dart';
 import '../extensions/navigation.dart';
@@ -288,22 +283,23 @@ class AppHelperFunctions {
     return DateFormat('yyyy-M-d').format(date);
   }
 
-  Future<void> clearDataFromMemoryAndLogout({
-    required BuildContext context,
-  }) async {
-    await SharedPrefHelper().deleteUser();
-    await SharedPrefHelper().clearAllSecuredData();
-    if (context.mounted) {
-      sl.resetLazySingleton<UserProfileCubit>();
-      context.read<GetNotificationsCubit>().resetCubit();
-      context.read<ListHolidaysCubit>().resetCubit();
-      context.read<HomePageLayoutCubit>().resetNavigation();
-      await context.pushNamedAndRemoveUntil(
-        RouteNames.login,
-        predicate: (Route<dynamic> route) => false,
-      );
-    }
-  }
+  // Future<void> clearDataFromMemoryAndLogout({
+  //   required BuildContext context,
+  // }) async {
+  //   await SharedPrefHelper().deleteUser();
+  //   await SharedPrefHelper().clearAllSecuredData();
+  //   if (context.mounted) {
+  //     // sl.resetLazySingleton<UserProfileCubit>();
+  //     context.read<UserProfileCubit>().resetCubit();
+  //     context.read<GetNotificationsCubit>().resetCubit();
+  //     context.read<ListHolidaysCubit>().resetCubit();
+  //     context.read<HomePageLayoutCubit>().resetNavigation();
+  //     await context.pushNamedAndRemoveUntil(
+  //       RouteNames.login,
+  //       predicate: (Route<dynamic> route) => false,
+  //     );
+  //   }
+  // }
 
   /// Function to convert to "11 March 2024"
   String formatDateToDayMonthYear(DateTime dateTime) {
