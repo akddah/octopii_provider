@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
+import 'package:octopii_provier_app/core/const/database_constants.dart';
 import 'package:octopii_provier_app/core/extensions/navigation.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
 import 'package:octopii_provier_app/core/helpers/shared_pref_helper.dart';
@@ -360,12 +361,15 @@ class ServerGate {
         );
       } else if (err.response?.statusCode == 401) {
         Future.sync(() async {
-          await SharedPrefHelper().deleteUser();
-          await SharedPrefHelper().clearAllSecuredData();
-          await navigatorKey.currentContext!.pushNamedAndRemoveUntil(
-            RouteNames.splash,
-            predicate: (Route<dynamic> route) => false,
-          );
+          final String? cachedAuthToken = await SharedPrefHelper().getSecuredToken(DatabaseConstants.tokenKey);
+          if (cachedAuthToken?.isNotEmpty == true) {
+            await SharedPrefHelper().deleteUser();
+            await SharedPrefHelper().clearAllSecuredData();
+            await navigatorKey.currentContext!.pushNamedAndRemoveUntil(
+              RouteNames.splash,
+              predicate: (Route<dynamic> route) => false,
+            );
+          }
         });
 
         final Map<String, dynamic> responseData = err.response!.data as Map<String, dynamic>;

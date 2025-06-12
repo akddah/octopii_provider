@@ -53,7 +53,7 @@ class BookingResponse with _$BookingResponse {
     @JsonKey(name: 'service_title') required String? serviceTitle,
     @JsonKey(name: 'service_duration') required double? serviceDuration,
     @JsonKey(name: 'service_cost') required String? serviceCost,
-    @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue) required BookingStatus bookingStatus,
+    @JsonKey(name: 'booking_statu', fromJson: BookingStatusExtension.fromValue) required BookingStatus bookingStatus,
     @JsonKey(fromJson: dateNullFromJson, name: 'created_at') required DateTime? createdAt,
     @JsonKey(name: 'customer_phone') String? customerPhone,
     num? basePrice,

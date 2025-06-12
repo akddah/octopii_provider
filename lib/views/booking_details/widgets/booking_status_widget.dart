@@ -171,8 +171,8 @@ class BookingStatusWidget extends StatelessWidget {
       final now = DateTime.now();
       final halfHourBeforeOrder = orderTime.subtract(Duration(minutes: 30));
 
-      if (now.isAfter(halfHourBeforeOrder) && now.isBefore(orderTime)) {
-        return bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted;
+      if (now.isAfter(halfHourBeforeOrder)) {
+        return bookingResponse?.bookingStatus.isConfirmed == true || bookingResponse?.bookingStatus.isStarted == true;
       } else {
         return false;
       }
