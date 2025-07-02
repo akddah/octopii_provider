@@ -62,7 +62,7 @@ class _SetDomainSheetState extends State<SetDomainSheet> {
                       onTap: () {
                         if (textController.text.trim().isNotEmpty) {
                           SharedPreferences.getInstance().then((SharedPreferences v) {
-                            v.setString('domain', textController.text.trim());
+                            v.setString('domain', textController.text.toLowerCase().trim());
                             Navigator.pop(context);
                           });
                         }
