@@ -11,8 +11,7 @@ import 'package:octopii_provier_app/models/login/login_request_model.dart';
 part 'request_otp_state.dart';
 
 class RequestOtpCubit extends Cubit<RequestOtpStates> {
-  RequestOtpCubit()
-      : super(const RequestOtpStates(status: GenericStateStatus.initial));
+  RequestOtpCubit() : super(const RequestOtpStates(status: GenericStateStatus.initial));
 
   Future<void> requestOtp({
     required GenericLoginRequestModel requestModel,
@@ -22,8 +21,7 @@ class RequestOtpCubit extends Cubit<RequestOtpStates> {
         status: GenericStateStatus.loading,
       ),
     );
-    final CustomResponse<Map<String, dynamic>> result =
-        await ServerGate.i.sendToServer<Map<String, dynamic>>(
+    final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.sendToServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.requestOtp),
       body: requestModel.toJson(),
     );

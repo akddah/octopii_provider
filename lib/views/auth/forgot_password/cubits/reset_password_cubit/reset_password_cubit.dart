@@ -16,10 +16,7 @@ import 'package:octopii_provier_app/models/reset_password/reset_password_request
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-
-
-  ResetPasswordCubit()
-      : super(const ResetPasswordState(status: GenericStateStatus.initial));
+  ResetPasswordCubit() : super(const ResetPasswordState(status: GenericStateStatus.initial));
 
   Future<void> requestPassword({
     required ResetPasswordRequestModel requestModel,
@@ -29,23 +26,19 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
         status: GenericStateStatus.loading,
       ),
     );
-      final token = await SharedPrefHelper().getSecuredToken(DatabaseConstants.forgetPasswordTokenKey);
-      log('-=-=-=-=-=-=- $token');
-    final CustomResponse<Map<String, dynamic>> result =
-        await ServerGate.i.sendToServer<Map<String, dynamic>>(
+    final token = await SharedPrefHelper().getSecuredToken(DatabaseConstants.forgetPasswordTokenKey);
+    log('-=-=-=-=-=-=- $token');
+    final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.sendToServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.resetPassword),
       body: requestModel.toJson(),
-          headers: {
-       "Authorization": "Bearer $token",
-          }
+      headers: {"Authorization": "Bearer $token"},
     );
     AppLogger().info('The Response Result Is ${result.success}');
     AppLogger().info('The Response Result Is ${result.data}');
     AppLogger().info('The Response Result Is ${result.statusCode}');
     switch (result.responseState) {
       case ResponseState.success:
-        final ResetPasswordResponseData resetPasswordResponseData =
-            ResetPasswordResponseData.fromJson(result.data!);
+        final ResetPasswordResponseData resetPasswordResponseData = ResetPasswordResponseData.fromJson(result.data!);
 
         emit(
           state.copyWith(

@@ -99,6 +99,7 @@ class ForgotPasswordBody extends HookWidget {
                     phone: phoneNumberController.text,
                     password: null,
                     otp: null,
+                    countryId: 1,
                   ),
                 ),
             text: LocaleKeys.continueKey.tr(),
