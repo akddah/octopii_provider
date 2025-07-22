@@ -33,36 +33,40 @@ class BookingDetailsCubit extends Cubit<BookingDetailsState> {
     AppLogger().info(
       'The Response Result Is Of Booking Details ${result.responseState}',
     );
-    switch (result.responseState) {
-      case ResponseState.success:
-        // try {
-        final BookingDetailsData bookingDetailsResponseModel = BookingDetailsData.fromJson(
-          result.data!,
-        );
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.loaded,
-            bookingDetailsResponseModel: bookingDetailsResponseModel,
-          ),
-        );
-      // } catch (e) {
-      //   log('-=-=-=-=-=- $e');
-      //   emit(
-      //     state.copyWith(
-      //       status: GenericStateStatus.error,
-      //       errorMsg: '$e',
-      //     ),
-      //   );
-      // }
+    try {
+      switch (result.responseState) {
+        case ResponseState.success:
+          // try {
+          final BookingDetailsData bookingDetailsResponseModel = BookingDetailsData.fromJson(
+            result.data!,
+          );
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.loaded,
+              bookingDetailsResponseModel: bookingDetailsResponseModel,
+            ),
+          );
+        // } catch (e) {
+        //   log('-=-=-=-=-=- $e');
+        //   emit(
+        //     state.copyWith(
+        //       status: GenericStateStatus.error,
+        //       errorMsg: '$e',
+        //     ),
+        //   );
+        // }
 
-      case ResponseState.error:
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.error,
-            errorMsg: result.msg,
-          ),
-        );
-        AppLogger().error('Error From Server: ${result.msg}');
+        case ResponseState.error:
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.error,
+              errorMsg: result.msg,
+            ),
+          );
+          AppLogger().error('Error From Server: ${result.msg}');
+      }
+    } catch (e, stackTrace) {
+      print(stackTrace);
     }
   }
 }

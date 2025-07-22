@@ -13,7 +13,7 @@ extension PaymentMethodExtension on PaymentMethod {
     }
   }
 
-  static PaymentMethod fromJson(String value) {
+  static PaymentMethod fromJson(String? value) {
     switch (value) {
       case 'cash':
         return PaymentMethod.cash;
@@ -22,7 +22,8 @@ extension PaymentMethodExtension on PaymentMethod {
       case 'other':
         return PaymentMethod.other;
       default:
-        throw ArgumentError('Invalid payment method: $value');
+        return PaymentMethod.other;
+      // throw ArgumentError('Invalid payment method: $value');
     }
   }
 }
@@ -38,6 +39,7 @@ extension PaymentStatusExtension on PaymentStatus {
         return 'pending';
     }
   }
+
   static PaymentStatus fromJson(String value) {
     AppLogger().info('The Payment Status Value Is $value');
     switch (value.toLowerCase()) {

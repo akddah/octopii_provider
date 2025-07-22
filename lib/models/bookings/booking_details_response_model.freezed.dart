@@ -215,7 +215,7 @@ mixin _$BookingResponse {
   double? get serviceDuration => throw _privateConstructorUsedError;
   @JsonKey(name: 'service_cost')
   String? get serviceCost => throw _privateConstructorUsedError;
-  @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+  @JsonKey(name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
   BookingStatus get bookingStatus => throw _privateConstructorUsedError;
   @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -274,7 +274,7 @@ abstract class $BookingResponseCopyWith<$Res> {
       @JsonKey(name: 'service_duration') double? serviceDuration,
       @JsonKey(name: 'service_cost') String? serviceCost,
       @JsonKey(
-          name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+          name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
       BookingStatus bookingStatus,
       @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
       DateTime? createdAt,
@@ -550,7 +550,7 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       @JsonKey(name: 'service_duration') double? serviceDuration,
       @JsonKey(name: 'service_cost') String? serviceCost,
       @JsonKey(
-          name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+          name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
       BookingStatus bookingStatus,
       @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
       DateTime? createdAt,
@@ -767,7 +767,7 @@ class _$BookingResponseImpl implements _BookingResponse {
       @JsonKey(name: 'service_duration') required this.serviceDuration,
       @JsonKey(name: 'service_cost') required this.serviceCost,
       @JsonKey(
-          name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+          name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
       required this.bookingStatus,
       @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
       required this.createdAt,
@@ -846,7 +846,7 @@ class _$BookingResponseImpl implements _BookingResponse {
   @JsonKey(name: 'service_cost')
   final String? serviceCost;
   @override
-  @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+  @JsonKey(name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
   final BookingStatus bookingStatus;
   @override
   @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
@@ -1020,7 +1020,7 @@ abstract class _BookingResponse implements BookingResponse {
       @JsonKey(name: 'service_duration') required final double? serviceDuration,
       @JsonKey(name: 'service_cost') required final String? serviceCost,
       @JsonKey(
-          name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+          name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
       required final BookingStatus bookingStatus,
       @JsonKey(fromJson: dateNullFromJson, name: 'created_at')
       required final DateTime? createdAt,
@@ -1083,7 +1083,7 @@ abstract class _BookingResponse implements BookingResponse {
   @JsonKey(name: 'service_cost')
   String? get serviceCost;
   @override
-  @JsonKey(name: 'booking_status', fromJson: BookingStatusExtension.fromValue)
+  @JsonKey(name: 'booking_statu', fromJson: BookingStatusExtension.fromValue)
   BookingStatus get bookingStatus;
   @override
   @JsonKey(fromJson: dateNullFromJson, name: 'created_at')

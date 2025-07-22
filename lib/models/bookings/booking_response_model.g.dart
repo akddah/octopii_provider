@@ -178,7 +178,7 @@ Map<String, dynamic> _$$ForeignCustomerImplToJson(
 
 _$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) =>
     _$PaymentImpl(
-      method: PaymentMethodExtension.fromJson(json['method'] as String),
+      method: PaymentMethodExtension.fromJson(json['method'] as String?),
       status: json['status'] as String,
     );
 

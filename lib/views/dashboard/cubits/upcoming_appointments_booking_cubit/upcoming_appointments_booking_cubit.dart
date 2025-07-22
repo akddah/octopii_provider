@@ -51,28 +51,39 @@ class UpcomingAppointmentsBookingCubit extends Cubit<UpcomingAppointmentsBooking
       url: dotenv.get(AppConstantStrings.bookings),
       params: {'status': 0},
     );
+    try {
+      switch (result.responseState) {
+        case ResponseState.success:
+          final BookingResponseModel bookingResponseModel = BookingResponseModel.fromJson(result.data!);
 
-    switch (result.responseState) {
-      case ResponseState.success:
-        final BookingResponseModel bookingResponseModel = BookingResponseModel.fromJson(result.data!);
+          AppLogger().info('UpComing Data Is ${result.data}');
+          AppLogger().info('The Old Length Is ${bookingResponseModel.response?.data.length}');
 
-        AppLogger().info('UpComing Data Is ${result.data}');
-        AppLogger().info('The Old Length Is ${bookingResponseModel.response?.data.length}');
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.loaded,
+              upComingdBookingResponseModel: bookingResponseModel.response?.data ?? <BookingDetails>[],
+            ),
+          );
 
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.loaded,
-            upComingdBookingResponseModel: bookingResponseModel.response?.data ?? <BookingDetails>[],
-          ),
-        );
+        case ResponseState.error:
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.error,
+              errorMsg: result.msg,
+            ),
+          );
+      }
+    } catch (e, stc) {
+      log('-=-=-=-=-=-=- stcstcstcstcstcstc $stc');
+      log('-=-=-=-=-=-=- salkan $e');
 
-      case ResponseState.error:
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.error,
-            errorMsg: result.msg,
-          ),
-        );
+      emit(
+        state.copyWith(
+          status: GenericStateStatus.error,
+          errorMsg: '$e',
+        ),
+      );
     }
   }
 
