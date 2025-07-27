@@ -141,9 +141,7 @@ class BookingStatusWidget extends StatelessWidget {
                           CupertinoIcons.info,
                           color: context.errorColor,
                         ),
-                        SizedBox(
-                          width: 6.w,
-                        ),
+                        SizedBox(width: 6.w),
                         Expanded(
                           child: Text(
                             LocaleKeys.orderActionsMsg.tr(),

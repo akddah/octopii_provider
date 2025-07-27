@@ -12,9 +12,9 @@ import 'core/utils/utils/app_logger.dart';
 // final String phone = kDebugMode ? '01009828555' : '';
 // final String password = kDebugMode ? 'Aa123123@' : '';
 //
-// final String domain = kDebugMode ? 'reda-new' : '';
-// final String phone = kDebugMode ? '01117246896' : '';
-// final String password = kDebugMode ? '123456' : '';
+final String domain = kDebugMode ? 'reda-new' : '';
+final String phone = kDebugMode ? '01117246896' : '';
+final String password = kDebugMode ? '123456' : '';
 //
 // final String domain = kDebugMode ? 'top-wash' : '';
 // final String phone = kDebugMode ? '01211000358' : '';
@@ -30,9 +30,9 @@ import 'core/utils/utils/app_logger.dart';
 // final String phone = kDebugMode ? '01091229771' : '';
 // final String password = kDebugMode ? '123456' : '';
 
-final String domain = kDebugMode ? 'top-wash' : '';
-final String phone = kDebugMode ? '01020155238' : '';
-final String password = kDebugMode ? '123456' : '';
+// final String domain = kDebugMode ? 'top-wash' : '';
+// final String phone = kDebugMode ? '01020155238' : '';
+// final String password = kDebugMode ? '123456' : '';
 
 // final String domain = kDebugMode ? 'mariam' : '';
 // final String phone = kDebugMode ? '01123378808' : '';

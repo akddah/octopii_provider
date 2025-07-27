@@ -23,17 +23,17 @@ class LogoutListenerWidget extends StatelessWidget {
     return BlocListener<LogoutCubit, LogoutState>(
       listener: (BuildContext context, LogoutState state) {
         if (state.isLoading) {
-          showDialog<dynamic>(
-            context: context,
-            builder: (_) => Dialog(
-              backgroundColor: Colors.transparent,
-              child: Container(
-                alignment: FractionalOffset.center,
-                padding: const EdgeInsets.all(20),
-                child: const CircularProgressIndicator.adaptive(),
-              ),
-            ),
-          );
+          // showDialog<dynamic>(
+          //   context: context,
+          //   builder: (_) => Dialog(
+          //     backgroundColor: Colors.transparent,
+          //     child: Container(
+          //       alignment: FractionalOffset.center,
+          //       padding: const EdgeInsets.all(20),
+          //       child: const CircularProgressIndicator.adaptive(),
+          //     ),
+          //   ),
+          // );
         } else if (state.isLoaded) {
           ToastManager().success(
             context: context,

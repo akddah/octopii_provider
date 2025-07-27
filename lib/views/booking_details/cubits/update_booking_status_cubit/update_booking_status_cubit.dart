@@ -16,10 +16,7 @@ class UpdateBookingStatusCubit extends Cubit<UpdateBookingStatusState> {
           const UpdateBookingStatusState(status: GenericStateStatus.initial),
         );
 
-  Future<void> updateBookingStatus({
-    required int bookingId,
-    required int bookingNewStatus,
-  }) async {
+  Future<void> updateBookingStatus({required int bookingId, required int bookingNewStatus}) async {
     emit(
       state.copyWith(
         status: GenericStateStatus.loading,
@@ -31,9 +28,7 @@ class UpdateBookingStatusCubit extends Cubit<UpdateBookingStatusState> {
         AppConstantStrings.bookingId,
         fallback: bookingId,
       )}',
-      body: <String, dynamic>{
-        'status': bookingNewStatus,
-      },
+      body: <String, dynamic>{'status': bookingNewStatus},
     );
     AppLogger().info(
       'The Response Result Is Of Update Booking Status ${result.success}',
