@@ -11,7 +11,7 @@ class LoginWelcomeWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text(
-         LocaleKeys.log_In.tr(),
+          LocaleKeys.log_In.tr(),
           style: Theme.of(context).textTheme.displayLarge,
         ),
         SizedBox(

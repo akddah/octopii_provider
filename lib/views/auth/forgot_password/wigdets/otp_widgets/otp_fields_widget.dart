@@ -33,9 +33,9 @@ class OtpFieldsWidget extends StatefulWidget {
 }
 
 class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderStateMixin {
-  late final TextEditingController pinCodeEditingController;
-  late final StreamController<ErrorAnimationType> errorController;
-  late final FocusNode focusNode;
+  final TextEditingController pinCodeEditingController = TextEditingController();
+  final StreamController<ErrorAnimationType> errorController = StreamController<ErrorAnimationType>();
+  final FocusNode focusNode = FocusNode();
   late Timer _timer;
 
   bool isLoading = false;
@@ -46,9 +46,9 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderSt
   @override
   void initState() {
     super.initState();
-    pinCodeEditingController = TextEditingController();
-    errorController = StreamController<ErrorAnimationType>();
-    focusNode = FocusNode();
+    // pinCodeEditingController = TextEditingController();
+    // errorController = StreamController<ErrorAnimationType>();
+    // focusNode = FocusNode();
     context.read<VerifyOtpCubit>().stream.listen(
       (VerifyOtpStates state) {
         if (state.isError) {

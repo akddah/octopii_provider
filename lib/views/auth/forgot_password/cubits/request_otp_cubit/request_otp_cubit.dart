@@ -1,26 +1,23 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
-import 'package:octopii_provier_app/core/helpers/enums.dart';
-import 'package:octopii_provier_app/core/infrastructure/networking/server_gate.dart';
-import 'package:octopii_provier_app/core/utils/generic_classes/generic.dart';
-import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
-import 'package:octopii_provier_app/models/login/login_request_model.dart';
+
+import '../../../../../core/config/app_constant_strings.dart';
+import '../../../../../core/helpers/enums.dart';
+import '../../../../../core/infrastructure/networking/server_gate.dart';
+import '../../../../../core/utils/generic_classes/generic.dart';
+import '../../../../../core/utils/utils/app_logger.dart';
+import '../../../../../main.dart';
+import '../../../../../models/login/login_request_model.dart';
 
 part 'request_otp_state.dart';
 
 class RequestOtpCubit extends Cubit<RequestOtpStates> {
   RequestOtpCubit() : super(const RequestOtpStates(status: GenericStateStatus.initial));
+  final phoneNumberController = TextEditingController(text: phone);
 
-  Future<void> requestOtp({
-    required GenericLoginRequestModel requestModel,
-  }) async {
-    emit(
-      state.copyWith(
-        status: GenericStateStatus.loading,
-      ),
-    );
+  Future<void> requestOtp({required GenericLoginRequestModel requestModel}) async {
+    emit(state.copyWith(status: GenericStateStatus.loading));
     final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.sendToServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.requestOtp),
       body: requestModel.toJson(),

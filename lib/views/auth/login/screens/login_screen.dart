@@ -5,7 +5,6 @@ import 'package:octopii_provier_app/core/navigation/app_router.dart';
 import 'package:octopii_provier_app/core/theme/app_colors.dart';
 import 'package:octopii_provier_app/core/theme/app_system_ui_overlay_styles.dart';
 import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
-import 'package:octopii_provier_app/views/auth/country_list/cubits/get_country_list_cubit/get_country_list_cubit.dart';
 import 'package:octopii_provier_app/views/auth/login/cubits/login_cubit/login_cubit.dart';
 import 'package:octopii_provier_app/views/auth/login/widgets/login_widgets/index.dart';
 import 'package:octopii_provier_app/views/auth/login/widgets/login_widgets/set_domain_sheet.dart';
@@ -70,9 +69,9 @@ class _LoginScreenState extends State<LoginScreen> with RouteAware {
           BlocProvider<LoginCubit>(
             create: (BuildContext context) => LoginCubit(),
           ),
-          BlocProvider<GetCountryListCubit>(
-            create: (BuildContext context) => GetCountryListCubit()..getCountryList(),
-          ),
+          // BlocProvider<GetCountryListCubit>(
+          //   create: (BuildContext context) => GetCountryListCubit()..getCountryList(),
+          // ),
         ],
         child: const Scaffold(
           body: SafeArea(

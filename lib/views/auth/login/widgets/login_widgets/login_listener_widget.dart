@@ -30,8 +30,7 @@ class LoginListenerWidget extends StatelessWidget {
           ToastManager().error(
             context: context,
             message: LocaleKeys.loginError.tr(),
-            description:
-                state.errorMsg ?? LocaleKeys.loginErrorDescription.tr(),
+            description: state.errorMsg ?? LocaleKeys.loginErrorDescription.tr(),
           );
         }
       },

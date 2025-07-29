@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:octopii_provier_app/core/common_widgets/custom_loading_button.dart';
-import 'package:octopii_provier_app/core/common_widgets/custom_text_form_field.dart';
-import 'package:octopii_provier_app/core/const/const_strings.dart';
-import 'package:octopii_provier_app/core/extensions/widgets_extensions.dart';
-import 'package:octopii_provier_app/core/helpers/enums.dart';
-import 'package:octopii_provier_app/core/theme/app_colors.dart';
-import 'package:octopii_provier_app/core/utils/utils/app_logger.dart';
-import 'package:octopii_provier_app/gen/locale_keys.g.dart';
-import 'package:octopii_provier_app/main.dart';
-import 'package:octopii_provier_app/models/login/login_request_model.dart';
-import 'package:octopii_provier_app/views/auth/country_list/widgets/country_list_widgets/country_view.dart';
-import 'package:octopii_provier_app/views/auth/forgot_password/cubits/request_otp_cubit/request_otp_cubit.dart';
-import 'package:octopii_provier_app/views/auth/forgot_password/wigdets/forgot_password_widgets/request_opt_listener_widget.dart';
+
+import '../../../../../core/common_widgets/custom_loading_button.dart';
+import '../../../../../core/common_widgets/custom_text_form_field.dart';
+import '../../../../../core/const/const_strings.dart';
+import '../../../../../core/extensions/widgets_extensions.dart';
+import '../../../../../core/helpers/enums.dart';
+import '../../../../../core/theme/app_colors.dart';
+import '../../../../../core/utils/utils/app_logger.dart';
+import '../../../../../gen/locale_keys.g.dart';
+import '../../../../../models/login/login_request_model.dart';
+import '../../../country_list/widgets/country_list_widgets/country_view.dart';
+import '../../cubits/request_otp_cubit/request_otp_cubit.dart';
+import 'request_opt_listener_widget.dart';
 
 class ForgotPasswordBody extends HookWidget {
   const ForgotPasswordBody({super.key});
@@ -23,24 +23,25 @@ class ForgotPasswordBody extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<bool> isValidPhoneNumber = useState(false);
-    final TextEditingController phoneNumberController = useTextEditingController(text: phone);
-    AppLogger().info('The Sending Mobile Number Is ${phoneNumberController.text}');
+    //  TextEditingController ge phoneNumberController => context.read<RequestOtpCubit>().;
+    final phone = context.read<RequestOtpCubit>().phoneNumberController;
+    AppLogger().info('The Sending Mobile Number Is ${phone.text}');
     bool formIsNotEmpty() {
-      return isValidPhoneNumber.value = phoneNumberController.text.trim().isNotEmpty;
+      return isValidPhoneNumber.value = phone.text.trim().isNotEmpty;
     }
 
     useEffect(
       () {
-        phoneNumberController.addListener(formIsNotEmpty);
+        phone.addListener(formIsNotEmpty);
         return () {
-          phoneNumberController.removeListener(formIsNotEmpty);
+          phone.removeListener(formIsNotEmpty);
         };
       },
-      <Object?>[phoneNumberController],
+      <Object?>[phone],
     );
 
     return RequestOptListenerWidget(
-      mobileNumber: phoneNumberController.text,
+      // mobileNumber: phone.text,
       child: ListView(
         padding: const EdgeInsets.all(20),
         children: <Widget>[
@@ -48,9 +49,7 @@ class ForgotPasswordBody extends HookWidget {
             tag: AppStrings.otpTag,
             child: Text(
               LocaleKeys.resetPassword.tr(),
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.scrim,
-                  ),
+              style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.scrim),
             ).wrapCenter(),
           ),
           SizedBox(
@@ -67,12 +66,10 @@ class ForgotPasswordBody extends HookWidget {
             children: <Widget>[
               CustomTextFormField(
                 keyboardType: TextInputType.phone,
-                textEditingController: phoneNumberController,
+                textEditingController: phone,
                 hintText: LocaleKeys.mobileNumber.tr(),
                 contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                prefixIcon: const CountryView().paddingHorizontal(
-                  10.w,
-                ),
+                prefixIcon: const CountryView().paddingHorizontal(10.w),
               ),
               PositionedDirectional(
                 start: -200.w,
@@ -96,7 +93,7 @@ class ForgotPasswordBody extends HookWidget {
             isClickable: isValidPhoneNumber.value,
             onTap: () => context.read<RequestOtpCubit>().requestOtp(
                   requestModel: GenericLoginRequestModel(
-                    phone: phoneNumberController.text,
+                    phone: phone.text,
                     password: null,
                     otp: null,
                     countryId: 1,

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
@@ -17,10 +17,7 @@ part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   ResetPasswordCubit() : super(const ResetPasswordState(status: GenericStateStatus.initial));
-
-  Future<void> requestPassword({
-    required ResetPasswordRequestModel requestModel,
-  }) async {
+  Future<void> requestPassword({required ResetPasswordRequestModel requestModel}) async {
     emit(
       state.copyWith(
         status: GenericStateStatus.loading,
