@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -10,12 +12,9 @@ import 'package:octopii_provier_app/models/notifications/notification_response.d
 part 'get_notifications_state.dart';
 
 class GetNotificationsCubit extends Cubit<GetNotificationsState> {
-  GetNotificationsCubit()
-      : super(const GetNotificationsState(status: GenericStateStatus.initial)) {
+  GetNotificationsCubit() : super(const GetNotificationsState(status: GenericStateStatus.initial)) {
     scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-              scrollController.position.maxScrollExtent &&
-          !isLoadingMore) {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent && !isLoadingMore) {
         fetchNotifications();
       }
     });
@@ -27,39 +26,41 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
   final ScrollController scrollController = ScrollController();
 
   Future<void> getNotificationList() async {
-    emit(state.copyWith(status: GenericStateStatus.loading));
+    try {
+      emit(state.copyWith(status: GenericStateStatus.loading));
 
-    final CustomResponse<Map<String, dynamic>> result =
-        await ServerGate.i.getFromServer<Map<String, dynamic>>(
-      url: dotenv.get(AppConstantStrings.notification),
-      params: <String, dynamic>{'page': currentPage},
-    );
+      final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
+        url: "https://reda-new.api.testing.octopii.cloud/api/ve/v1/notifications",
+        params: <String, dynamic>{'page': currentPage},
+      );
 
-    switch (result.responseState) {
-      case ResponseState.success:
-        final NotificationData notificationData =
-            NotificationData.fromJson(result.data!);
+      switch (result.responseState) {
+        case ResponseState.success:
+          final NotificationsModel notificationData = NotificationsModel.fromJson(result.data?['response']);
 
-        AppLogger().info('Notification Data Is ${result.data}');
-        AppLogger().info(
-          'The Old Length Is ${notificationData.response?.notifications.length}',
-        );
+          AppLogger().info('Notification Data Is ${result.data}');
+          AppLogger().info(
+            'The Old Length Is ${notificationData.notifications.length}',
+          );
 
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.loaded,
-            notifications: notificationData.response?.notifications ??
-                <NotificationItem>[],
-          ),
-        );
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.loaded,
+              notifications: notificationData.notifications,
+            ),
+          );
 
-      case ResponseState.error:
-        emit(
-          state.copyWith(
-            status: GenericStateStatus.error,
-            errorMsg: result.msg,
-          ),
-        );
+        case ResponseState.error:
+          emit(
+            state.copyWith(
+              status: GenericStateStatus.error,
+              errorMsg: result.msg,
+            ),
+          );
+      }
+    } catch (e, s) {
+      log('-=-= ${e.toString()}');
+      log('-=-= ${s.toString()}');
     }
   }
 
@@ -73,29 +74,24 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
 
     currentPage++;
 
-    final CustomResponse<Map<String, dynamic>> result =
-        await ServerGate.i.getFromServer<Map<String, dynamic>>(
+    final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.notification),
       params: <String, dynamic>{'page': currentPage},
     );
 
     switch (result.responseState) {
       case ResponseState.success:
-        final NotificationData notificationData =
-            NotificationData.fromJson(result.data!);
+        final NotificationsModel notificationData = NotificationsModel.fromJson(result.data?['response']);
 
-        if (notificationData.response?.currentPage ==
-            notificationData.response?.lastPage) {
+        if (notificationData.currentPage == notificationData.lastPage) {
           hasMoreData = false;
         }
-        final List<NotificationItem> updatedList = <NotificationItem>[
-          ...state.notifications ?? <NotificationItem>[],
-          ...notificationData.response?.notifications ?? <NotificationItem>[],
+        final List<NotificationModel> updatedList = [
+          ...state.notifications ?? [],
+          ...notificationData.notifications,
         ];
-        AppLogger()
-            .info('Current Page: $currentPage, Has More Data: $hasMoreData');
-        AppLogger()
-            .info('Total Data Length After Update: ${updatedList.length}');
+        AppLogger().info('Current Page: $currentPage, Has More Data: $hasMoreData');
+        AppLogger().info('Total Data Length After Update: ${updatedList.length}');
 
         emit(
           state.copyWith(

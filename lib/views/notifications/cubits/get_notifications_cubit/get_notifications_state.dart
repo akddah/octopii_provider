@@ -14,7 +14,7 @@ extension GetNotificationsStateX on GetNotificationsState {
 final class GetNotificationsState {
   final GenericStateStatus status;
   final String? errorMsg;
-  final List<NotificationItem>? notifications;
+  final List<NotificationModel>? notifications;
   final bool? isLoadingMore;
   final bool? hasMoreData;
 
@@ -22,18 +22,16 @@ final class GetNotificationsState {
     required this.status,
     this.errorMsg,
     this.notifications,
-    this.isLoadingMore=false,
-    this.hasMoreData=false,
-
+    this.isLoadingMore = false,
+    this.hasMoreData = false,
   });
 
   GetNotificationsState copyWith({
     GenericStateStatus? status,
     String? errorMsg,
-    List<NotificationItem>? notifications,
+    List<NotificationModel>? notifications,
     bool? isLoadingMore,
     bool? hasMoreData,
-
   }) {
     return GetNotificationsState(
       status: status ?? this.status,
@@ -41,7 +39,6 @@ final class GetNotificationsState {
       notifications: notifications ?? this.notifications,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
       hasMoreData: hasMoreData ?? this.hasMoreData,
-
     );
   }
 
@@ -53,7 +50,6 @@ final class GetNotificationsState {
         'notifications: $notifications, '
         'isLoadingMore: $isLoadingMore, '
         'hasMoreData: $hasMoreData, '
-
         ')';
   }
 }

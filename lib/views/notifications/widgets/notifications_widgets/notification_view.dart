@@ -11,12 +11,12 @@ class NotificationView extends StatelessWidget {
     super.key,
   });
 
-  final NotificationItem notificationItem;
+  final NotificationModel notificationItem;
 
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: notificationItem.isRead ? 1 : .50,
+      opacity: notificationItem.readAt == null ? 1 : .50,
       child: Container(
         width: 353.w,
         padding: const EdgeInsets.all(12),
@@ -58,7 +58,7 @@ class NotificationView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  notificationItem.title,
+                  '${notificationItem.data.payload.type} #${notificationItem.data.payload.id}',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
@@ -71,7 +71,7 @@ class NotificationView extends StatelessWidget {
                 SizedBox(
                   width: 280.w,
                   child: Text(
-                    notificationItem.body,
+                    notificationItem.data.message,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(

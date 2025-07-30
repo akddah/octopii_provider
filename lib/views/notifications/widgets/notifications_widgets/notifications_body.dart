@@ -42,7 +42,7 @@ class _NotificationsBodyState extends State<NotificationsBody> {
         Expanded(
           child: BlocBuilder<GetNotificationsCubit, GetNotificationsState>(
             builder: (BuildContext context, GetNotificationsState state) {
-              final List<NotificationItem> notifications=state.notifications??<NotificationItem>[];
+              final List<NotificationModel> notifications = state.notifications ?? <NotificationModel>[];
               if (state.isLoading || state.isInitial) {
                 return const NotificationShimmerView();
               } else if (state.isError) {
@@ -59,10 +59,8 @@ class _NotificationsBodyState extends State<NotificationsBody> {
               }
 
               return ListView.separated(
-                controller:
-                    context.read<GetNotificationsCubit>().scrollController,
-                itemBuilder: (BuildContext context, int index) =>
-                    NotificationView(
+                controller: context.read<GetNotificationsCubit>().scrollController,
+                itemBuilder: (BuildContext context, int index) => NotificationView(
                   notificationItem: notifications[index],
                 ),
                 separatorBuilder: (BuildContext context, __) => SizedBox(
