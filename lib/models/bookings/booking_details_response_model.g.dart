@@ -31,7 +31,7 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(Map<String, dynamic> json) 
       serviceTitle: json['service_title'] as String?,
       serviceDuration: (json['service_duration'] as num?)?.toDouble(),
       serviceCost: json['service_cost'] as String?,
-      bookingStatus: BookingStatusExtension.fromValue((json['booking_statue'] as num?)?.toInt()),
+      bookingStatus: BookingStatusExtension.fromValue((json['booking_status'] as num?)?.toInt()),
       createdAt: dateNullFromJson(json['created_at']),
       customerPhone: json['customer_phone'] as String?,
       basePrice: json['basePrice'] as num?,
