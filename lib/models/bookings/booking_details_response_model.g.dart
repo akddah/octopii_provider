@@ -6,26 +6,17 @@ part of 'booking_details_response_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BookingDetailsDataImpl _$$BookingDetailsDataImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BookingDetailsDataImpl(
-      response: json['response'] == null
-          ? null
-          : BookingResponse.fromJson(json['response'] as Map<String, dynamic>),
+_$BookingDetailsDataImpl _$$BookingDetailsDataImplFromJson(Map<String, dynamic> json) => _$BookingDetailsDataImpl(
+      response: json['response'] == null ? null : BookingResponse.fromJson(json['response'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$BookingDetailsDataImplToJson(
-        _$BookingDetailsDataImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$BookingDetailsDataImplToJson(_$BookingDetailsDataImpl instance) => <String, dynamic>{
       'response': instance.response,
     };
 
-_$BookingResponseImpl _$$BookingResponseImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BookingResponseImpl(
+_$BookingResponseImpl _$$BookingResponseImplFromJson(Map<String, dynamic> json) => _$BookingResponseImpl(
       id: (json['id'] as num).toInt(),
-      date:
-          json['date'] == null ? null : DateTime.parse(json['date'] as String),
+      date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
       status: (json['status'] as num?)?.toInt(),
       total: json['total'] as num?,
       discount: json['discount'] as String?,
@@ -33,21 +24,14 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       totalPrice: json['total_price'] as num?,
       customerId: json['customer_id'],
       customerName: json['customer_name'] as String?,
-      payment: json['payment'] == null
-          ? null
-          : Payment.fromJson(json['payment'] as Map<String, dynamic>),
-      providers: (json['providers'] as List<dynamic>?)
-          ?.map((e) => Provider.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      services: (json['services'] as List<dynamic>?)
-          ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      payment: json['payment'] == null ? null : Payment.fromJson(json['payment'] as Map<String, dynamic>),
+      providers: (json['providers'] as List<dynamic>?)?.map((e) => Provider.fromJson(e as Map<String, dynamic>)).toList(),
+      services: (json['services'] as List<dynamic>?)?.map((e) => Service.fromJson(e as Map<String, dynamic>)).toList(),
       serviceId: (json['service_id'] as num?)?.toInt(),
       serviceTitle: json['service_title'] as String?,
       serviceDuration: (json['service_duration'] as num?)?.toDouble(),
       serviceCost: json['service_cost'] as String?,
-      bookingStatus: BookingStatusExtension.fromValue(
-          (json['booking_statu'] as num?)?.toInt()),
+      bookingStatus: BookingStatusExtension.fromValue((json['booking_statue'] as num?)?.toInt()),
       createdAt: dateNullFromJson(json['created_at']),
       customerPhone: json['customer_phone'] as String?,
       basePrice: json['basePrice'] as num?,
@@ -55,26 +39,15 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       notes: json['notes'] as String?,
       packageId: json['package_id'] as num?,
       countryCode: json['country_code'] as num?,
-      endedDate: json['ended_date'] == null
-          ? null
-          : DateTime.parse(json['ended_date'] as String),
+      endedDate: json['ended_date'] == null ? null : DateTime.parse(json['ended_date'] as String),
       createdBy: stringFromAny(json['created_by']),
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
+      address: json['address'] == null ? null : Address.fromJson(json['address'] as Map<String, dynamic>),
       isForeign: json['is_foreign'] as bool?,
-      foreignAddress: json['foreign_address'] == null
-          ? null
-          : Address.fromJson(json['foreign_address'] as Map<String, dynamic>),
-      foreignCustomer: json['foreign_customer'] == null
-          ? null
-          : ForeignCustomer.fromJson(
-              json['foreign_customer'] as Map<String, dynamic>),
+      foreignAddress: json['foreign_address'] == null ? null : Address.fromJson(json['foreign_address'] as Map<String, dynamic>),
+      foreignCustomer: json['foreign_customer'] == null ? null : ForeignCustomer.fromJson(json['foreign_customer'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$BookingResponseImplToJson(
-        _$BookingResponseImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$BookingResponseImplToJson(_$BookingResponseImpl instance) => <String, dynamic>{
       'id': instance.id,
       'date': instance.date?.toIso8601String(),
       'status': instance.status,
@@ -115,14 +88,12 @@ const _$BookingStatusEnumMap = {
   BookingStatus.cancelled: 'cancelled',
 };
 
-_$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) =>
-    _$PaymentImpl(
+_$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) => _$PaymentImpl(
       method: PaymentMethodExtension.fromJson(json['method'] as String?),
       status: PaymentStatusExtension.fromJson(json['status'] as String),
     );
 
-Map<String, dynamic> _$$PaymentImplToJson(_$PaymentImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$PaymentImplToJson(_$PaymentImpl instance) => <String, dynamic>{
       'method': _$PaymentMethodEnumMap[instance.method]!,
       'status': _$PaymentStatusEnumMap[instance.status]!,
     };
@@ -139,8 +110,7 @@ const _$PaymentStatusEnumMap = {
   PaymentStatus.pending: 'pending',
 };
 
-_$ProviderImpl _$$ProviderImplFromJson(Map<String, dynamic> json) =>
-    _$ProviderImpl(
+_$ProviderImpl _$$ProviderImplFromJson(Map<String, dynamic> json) => _$ProviderImpl(
       id: (json['id'] as num).toInt(),
       rank: json['rank'] as num?,
       rating: json['rating'] as num?,
@@ -148,8 +118,7 @@ _$ProviderImpl _$$ProviderImplFromJson(Map<String, dynamic> json) =>
       lastName: json['last_name'] as String?,
     );
 
-Map<String, dynamic> _$$ProviderImplToJson(_$ProviderImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$ProviderImplToJson(_$ProviderImpl instance) => <String, dynamic>{
       'id': instance.id,
       'rank': instance.rank,
       'rating': instance.rating,
@@ -157,8 +126,7 @@ Map<String, dynamic> _$$ProviderImplToJson(_$ProviderImpl instance) =>
       'last_name': instance.lastName,
     };
 
-_$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
-    _$ServiceImpl(
+_$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) => _$ServiceImpl(
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
       titleEn: json['title_en'] as String?,
@@ -167,8 +135,7 @@ _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
       duration: json['duration'] as num?,
     );
 
-Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'title_en': instance.titleEn,
@@ -177,8 +144,7 @@ Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
       'duration': instance.duration,
     };
 
-_$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
-    _$AddressImpl(
+_$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) => _$AddressImpl(
       id: (json['id'] as num).toInt(),
       locationName: json['location_name'] as String?,
       streetName: json['street_name'] as String?,
@@ -187,18 +153,13 @@ _$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
       unitNumber: json['unit_number'] as String?,
       notes: json['notes'] as String?,
       createdAt: dateNullFromJson(json['created_at']),
-      updatedAt: json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
-      deletedAt: json['deleted_at'] == null
-          ? null
-          : DateTime.parse(json['deleted_at'] as String),
+      updatedAt: json['updated_at'] == null ? null : DateTime.parse(json['updated_at'] as String),
+      deletedAt: json['deleted_at'] == null ? null : DateTime.parse(json['deleted_at'] as String),
       latitude: json['lat'] as String?,
       longitude: json['lng'] as String?,
     );
 
-Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) => <String, dynamic>{
       'id': instance.id,
       'location_name': instance.locationName,
       'street_name': instance.streetName,
