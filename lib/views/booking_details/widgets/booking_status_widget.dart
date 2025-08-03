@@ -58,42 +58,43 @@ class BookingStatusWidget extends StatelessWidget {
               ],
             ),
           ).withPadding(bottom: 24.h),
-        Container(
-          width: 353.w,
-          // height: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
-          //     ? 48.h
-          //     : bookingResponse!.bookingStatus.isCancelled && bookingResponse!.payment.status == PaymentStatus.paid ||
-          //             bookingResponse!.payment.status == PaymentStatus.unpaid
-          //         ? 115.h
-          //         : bookingResponse!.payment.status == PaymentStatus.paid && bookingResponse!.bookingStatus.isCompleted
-          //             ? 48.h
-          //             : 115.h,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondaryContainer,
-            borderRadius: BorderRadius.circular(12),
+        if (bookingResponse?.payment?.method != PaymentMethod.other)
+          Container(
+            width: 353.w,
+            // height: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
+            //     ? 48.h
+            //     : bookingResponse!.bookingStatus.isCancelled && bookingResponse!.payment.status == PaymentStatus.paid ||
+            //             bookingResponse!.payment.status == PaymentStatus.unpaid
+            //         ? 115.h
+            //         : bookingResponse!.payment.status == PaymentStatus.paid && bookingResponse!.bookingStatus.isCompleted
+            //             ? 48.h
+            //             : 115.h,
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondaryContainer,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
+                ? Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          MyAssets.icons.notificationIcon.svg(),
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Text(
+                            LocaleKeys.clientWillPayInCash.tr(),
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                : BookingPendingOrCancelView(
+                    bookingResponse: bookingResponse,
+                  ),
           ),
-          child: bookingResponse!.bookingStatus.isConfirmed || bookingResponse!.bookingStatus.isStarted
-              ? Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        MyAssets.icons.notificationIcon.svg(),
-                        SizedBox(
-                          width: 6.w,
-                        ),
-                        Text(
-                          LocaleKeys.clientWillPayInCash.tr(),
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              : BookingPendingOrCancelView(
-                  bookingResponse: bookingResponse,
-                ),
-        ),
         if (showBtns) ...<Widget>[
           SizedBox(
             height: 24.h,

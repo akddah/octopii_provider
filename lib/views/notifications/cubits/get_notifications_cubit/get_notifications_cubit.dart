@@ -30,7 +30,8 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
       emit(state.copyWith(status: GenericStateStatus.loading));
 
       final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
-        url: "https://reda-new.api.testing.octopii.cloud/api/ve/v1/notifications",
+        url: dotenv.get(AppConstantStrings.notification),
+        takeOtherBaseurl: true,
         params: <String, dynamic>{'page': currentPage},
       );
 
@@ -76,6 +77,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
 
     final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.getFromServer<Map<String, dynamic>>(
       url: dotenv.get(AppConstantStrings.notification),
+      takeOtherBaseurl: true,
       params: <String, dynamic>{'page': currentPage},
     );
 

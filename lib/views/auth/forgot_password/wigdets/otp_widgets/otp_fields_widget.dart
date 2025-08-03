@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:ui' as dir;
 
 import 'package:easy_localization/easy_localization.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:octopii_provier_app/core/common_widgets/loading.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../../core/common_widgets/custom_loading_button.dart';
@@ -18,7 +20,6 @@ import '../../../../../core/navigation/route_names.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../gen/locale_keys.g.dart';
 import '../../../../../models/login/login_request_model.dart';
-import '../../../country_list/cubits/get_country_list_cubit/get_country_list_cubit.dart';
 import '../../cubits/request_otp_cubit/request_otp_cubit.dart';
 import '../../cubits/verify_otp_cubit/verify_otp_cubit.dart';
 
@@ -39,10 +40,8 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderSt
   late Timer _timer;
 
   bool isLoading = false;
-  bool countDownIsRunning = false;
   bool isButtonEnabled = false;
-  int _countDownTime = 60;
-
+  final ValueNotifier<int> _countDownTime = ValueNotifier(60);
   @override
   void initState() {
     super.initState();
@@ -81,30 +80,31 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderSt
         }
       },
     );
+    initTimer();
   }
 
-  void startTimer() {
-    setState(() {
-      countDownIsRunning = true;
-      _countDownTime = 60;
-    });
-    context.read<RequestOtpCubit>().requestOtp(
+  Future<void> startTimer() async {
+    LoadingDialog.show();
+    await context.read<RequestOtpCubit>().requestOtp(
           requestModel: GenericLoginRequestModel(
             phone: widget.phoneNumber,
             password: null,
             otp: null,
-            countryId: context.read<GetCountryListCubit>().state.countryData!.id,
+            countryId: 1,
           ),
         );
+    LoadingDialog.hide();
+    initTimer();
+  }
+
+  initTimer() {
+    _countDownTime.value = 60;
     _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      setState(() {
-        if (_countDownTime > 0) {
-          _countDownTime--;
-        } else {
-          countDownIsRunning = false;
-          timer.cancel();
-        }
-      });
+      if (_countDownTime.value > 0) {
+        _countDownTime.value--;
+      } else {
+        timer.cancel();
+      }
     });
   }
 
@@ -203,46 +203,54 @@ class _OtpFieldsWidgetState extends State<OtpFieldsWidget> with TickerProviderSt
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text.rich(
-              TextSpan(
-                children: <InlineSpan>[
-                  TextSpan(
-                    text: LocaleKeys.resendCodeIn.tr(),
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                  WidgetSpan(
-                    child: SizedBox(
-                      width: 3.w,
-                    ),
-                  ),
-                  if (countDownIsRunning)
+            ValueListenableBuilder<int>(
+                valueListenable: _countDownTime,
+                builder: (context, value, child) {
+                  return Text.rich(
                     TextSpan(
-                      text: '$_countDownTime',
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            color: Theme.of(context).colorScheme.surfaceContainerLowest,
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: LocaleKeys.resendCodeIn.tr(),
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        WidgetSpan(
+                          child: SizedBox(
+                            width: 3.w,
                           ),
-                    )
-                  else
-                    WidgetSpan(
-                      child: SizedBox(
-                        width: 3.w,
-                      ),
-                    ),
-                  if (!countDownIsRunning)
-                    TextSpan(
-                      text: LocaleKeys.resend_code.tr(),
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
+                        ),
+                        if (value > 0)
+                          TextSpan(
+                            text: '$value',
+                            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                                  color: Theme.of(context).colorScheme.surfaceContainerLowest,
+                                ),
+                          )
+                        else
+                          WidgetSpan(
+                            child: SizedBox(
+                              width: 3.w,
+                            ),
                           ),
-                      recognizer: TapGestureRecognizer()..onTap = countDownIsRunning ? null : startTimer,
-                    )
-                  else
-                    const WidgetSpan(
-                      child: SizedBox.shrink(),
+                        if (value == 0)
+                          TextSpan(
+                            text: LocaleKeys.resend_code.tr(),
+                            style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                log('daslmk');
+                                startTimer();
+                              },
+                          )
+                        else
+                          const WidgetSpan(
+                            child: SizedBox.shrink(),
+                          ),
+                      ],
                     ),
-                ],
-              ),
-            ),
+                  );
+                }),
           ],
         ),
       ],

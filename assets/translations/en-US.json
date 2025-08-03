@@ -216,5 +216,6 @@
   "buildingNumber": "Building Number",
   "floorNumber": "Floor Number",
   "unitNumber": "Unit Number",
-  "notes": "Notes"
+  "notes": "Notes",
+  "no_payment": "Unpaid"
 }

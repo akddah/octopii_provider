@@ -148,7 +148,11 @@ class AppointmentCard extends StatelessWidget {
                         height: 2.h,
                       ),
                       Text(
-                        bookingDetails.payment?.method == PaymentMethod.cash ? LocaleKeys.cash.tr() : LocaleKeys.credit.tr(),
+                        bookingDetails.payment?.method == PaymentMethod.cash
+                            ? LocaleKeys.cash.tr()
+                            : bookingDetails.payment?.method == PaymentMethod.other
+                                ? "${LocaleKeys.no_payment.tr()}"
+                                : LocaleKeys.credit.tr(),
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               color: Theme.of(context).colorScheme.scrim,
                             ),
@@ -181,12 +185,13 @@ class AppointmentCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                Text(
-                  bookingDetails.payment?.method == PaymentMethod.cash ? LocaleKeys.paidInCash.tr() : LocaleKeys.paidByCreditCard.tr(),
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
-                      ),
-                ),
+                if (bookingDetails.payment?.method != PaymentMethod.other)
+                  Text(
+                    bookingDetails.payment?.method == PaymentMethod.cash ? LocaleKeys.paidInCash.tr() : LocaleKeys.paidByCreditCard.tr(),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.onTertiaryFixedVariant,
+                        ),
+                  ),
               ],
             ),
             // Visibility(
