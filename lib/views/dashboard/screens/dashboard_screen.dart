@@ -108,6 +108,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             width: 353.w,
                             height: 34.h,
                             onTap: () => state.upComingdBookingResponseModel?.isNotEmpty == true ? cubit.fetchMoreBooking() : cubit.getBookingList(),
+                            // onTap: () => context.push(
+                            //   RouteNames.bookingDetails,
+                            //   arguments: <String, dynamic>{
+                            //     'bookId': 778,
+                            //     'customerName': 'test',
+                            //   },
+                            // ),
                             borderColor: Theme.of(context).colorScheme.primary,
                             buttonName: state.isLoadingMore! ? LocaleKeys.loading.tr() : LocaleKeys.showAll.tr(),
                           ),

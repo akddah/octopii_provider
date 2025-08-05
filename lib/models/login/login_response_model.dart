@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_response_model.freezed.dart';
-
 part 'login_response_model.g.dart';
 
 @freezed
@@ -12,8 +11,7 @@ class LoginResponseModel with _$LoginResponseModel {
     required Authorization authorization,
   }) = _LoginResponseModel;
 
-  factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseModelFromJson(json);
+  factory LoginResponseModel.fromJson(Map<String, dynamic> json) => _$LoginResponseModelFromJson(json);
 }
 
 @freezed
@@ -22,7 +20,7 @@ class User with _$User {
     required int id,
     required String name,
     required String phone,
-    required int gender,
+    required int? gender,
     required int status,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') required DateTime updatedAt,
@@ -42,10 +40,9 @@ class User with _$User {
 @freezed
 class Authorization with _$Authorization {
   const factory Authorization({
-    required String?token,
+    required String? token,
     required String type,
   }) = _Authorization;
 
-  factory Authorization.fromJson(Map<String, dynamic> json) =>
-      _$AuthorizationFromJson(json);
+  factory Authorization.fromJson(Map<String, dynamic> json) => _$AuthorizationFromJson(json);
 }

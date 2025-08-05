@@ -20,7 +20,7 @@ class ResetPasswordResponse with _$ResetPasswordResponse {
     required int id,
     required String name,
     required String phone,
-    required int gender,
+    required int? gender,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') required DateTime updatedAt,
     @JsonKey(name: 'country_id') required int countryId,

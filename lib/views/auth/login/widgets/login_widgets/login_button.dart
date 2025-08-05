@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:octopii_provier_app/core/infrastructure/networking/local_notifications_service.dart';
 
 import '../../../../../core/common_widgets/custom_loading_button.dart';
 import '../../../../../core/extensions/navigation.dart';
@@ -31,12 +32,13 @@ class LoginButton extends StatelessWidget {
                   states: LoginStates.loading,
                 ),
                 cubit: loginCubit,
-                onTap: () => loginCubit.loginUser(
+                onTap: () async => loginCubit.loginUser(
                   requestModel: GenericLoginRequestModel(
                     phone: loginCubit.phoneNumberController.text,
                     countryId: 1,
                     password: loginCubit.passwordController.text,
                     otp: null,
+                    fcmToken: await GlobalNotification.getFcmToken(),
                     deviceType: Platform.isIOS ? 'ios' : 'android',
                   ),
                 ),

@@ -250,7 +250,7 @@ mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  int get gender => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
   int get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -287,7 +287,7 @@ abstract class $UserCopyWith<$Res> {
       {int id,
       String name,
       String phone,
-      int gender,
+      int? gender,
       int status,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
@@ -319,7 +319,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? phone = null,
-    Object? gender = null,
+    Object? gender = freezed,
     Object? status = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -345,10 +345,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: null == gender
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -408,7 +408,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {int id,
       String name,
       String phone,
-      int gender,
+      int? gender,
       int status,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
@@ -437,7 +437,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? phone = null,
-    Object? gender = null,
+    Object? gender = freezed,
     Object? status = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -463,10 +463,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: null == gender
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -545,7 +545,7 @@ class _$UserImpl implements _User {
   @override
   final String phone;
   @override
-  final int gender;
+  final int? gender;
   @override
   final int status;
   @override
@@ -650,7 +650,7 @@ abstract class _User implements User {
       {required final int id,
       required final String name,
       required final String phone,
-      required final int gender,
+      required final int? gender,
       required final int status,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
       @JsonKey(name: 'updated_at') required final DateTime updatedAt,
@@ -672,7 +672,7 @@ abstract class _User implements User {
   @override
   String get phone;
   @override
-  int get gender;
+  int? get gender;
   @override
   int get status;
   @override

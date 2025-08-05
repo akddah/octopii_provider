@@ -6,6 +6,7 @@ import 'package:octopii_provier_app/core/config/app_constant_strings.dart';
 import 'package:octopii_provier_app/core/extensions/navigation.dart';
 import 'package:octopii_provier_app/core/helpers/enums.dart';
 import 'package:octopii_provier_app/core/helpers/shared_pref_helper.dart';
+import 'package:octopii_provier_app/core/infrastructure/networking/local_notifications_service.dart';
 import 'package:octopii_provier_app/core/infrastructure/networking/server_gate.dart';
 import 'package:octopii_provier_app/core/navigation/app_router.dart';
 import 'package:octopii_provier_app/core/navigation/route_names.dart';
@@ -28,17 +29,19 @@ class LogoutCubit extends Cubit<LogoutState> {
       final CustomResponse<Map<String, dynamic>> result = await ServerGate.i.sendToServer<Map<String, dynamic>>(
         url: dotenv.get(AppConstantStrings.logout),
       );
-      LoadingDialog.hide();
 
       AppLogger().info('The Response Result Is ${result.success}');
       AppLogger().info('The Response Result Is ${result.data}');
       AppLogger().info('The Response Result Is ${result.statusCode}');
       await SharedPrefHelper().deleteUser();
       await SharedPrefHelper().clearAllSecuredData();
+      await GlobalNotification.deleteToken();
+      LoadingDialog.hide();
       await navigatorKey.currentContext!.pushNamedAndRemoveUntil(
         RouteNames.splash,
         predicate: (Route<dynamic> route) => false,
       );
+
       emit(
         state.copyWith(
           states: GenericStateStatus.loaded,

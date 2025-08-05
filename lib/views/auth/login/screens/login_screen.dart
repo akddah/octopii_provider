@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> with RouteAware {
         systemNavigationBarColor: AppColors.primaryWhite,
       ),
       child: MultiBlocProvider(
-        providers: <BlocProvider<dynamic>>[
+        providers: [
           BlocProvider<LoginCubit>(
             create: (BuildContext context) => LoginCubit(),
           ),

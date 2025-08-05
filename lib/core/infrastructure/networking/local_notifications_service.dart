@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -21,6 +22,15 @@ class GlobalNotification {
       return _deviceToken;
     } catch (e) {
       return 'static';
+    }
+  }
+
+  static deleteToken() async {
+    try {
+      await FirebaseMessaging.instance.deleteToken();
+      _deviceToken = '';
+    } on Exception catch (e, s) {
+      log('$e', stackTrace: s);
     }
   }
 

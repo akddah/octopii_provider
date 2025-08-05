@@ -201,7 +201,7 @@ mixin _$ResetPasswordResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  int get gender => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
@@ -238,7 +238,7 @@ abstract class $ResetPasswordResponseCopyWith<$Res> {
       {int id,
       String name,
       String phone,
-      int gender,
+      int? gender,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
       @JsonKey(name: 'country_id') int countryId,
@@ -269,7 +269,7 @@ class _$ResetPasswordResponseCopyWithImpl<$Res,
     Object? id = null,
     Object? name = null,
     Object? phone = null,
-    Object? gender = null,
+    Object? gender = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? countryId = null,
@@ -293,10 +293,10 @@ class _$ResetPasswordResponseCopyWithImpl<$Res,
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: null == gender
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -350,7 +350,7 @@ abstract class _$$ResetPasswordResponseImplCopyWith<$Res>
       {int id,
       String name,
       String phone,
-      int gender,
+      int? gender,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'updated_at') DateTime updatedAt,
       @JsonKey(name: 'country_id') int countryId,
@@ -379,7 +379,7 @@ class __$$ResetPasswordResponseImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? phone = null,
-    Object? gender = null,
+    Object? gender = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? countryId = null,
@@ -403,10 +403,10 @@ class __$$ResetPasswordResponseImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      gender: null == gender
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -475,7 +475,7 @@ class _$ResetPasswordResponseImpl implements _ResetPasswordResponse {
   @override
   final String phone;
   @override
-  final int gender;
+  final int? gender;
   @override
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
@@ -572,7 +572,7 @@ abstract class _ResetPasswordResponse implements ResetPasswordResponse {
           {required final int id,
           required final String name,
           required final String phone,
-          required final int gender,
+          required final int? gender,
           @JsonKey(name: 'created_at') required final DateTime createdAt,
           @JsonKey(name: 'updated_at') required final DateTime updatedAt,
           @JsonKey(name: 'country_id') required final int countryId,
@@ -594,7 +594,7 @@ abstract class _ResetPasswordResponse implements ResetPasswordResponse {
   @override
   String get phone;
   @override
-  int get gender;
+  int? get gender;
   @override
   @JsonKey(name: 'created_at')
   DateTime get createdAt;
