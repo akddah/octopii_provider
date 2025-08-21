@@ -1,25 +1,149 @@
 {
-    "user": {
-        "id": 1,
-        "name": "Ahmed Abdelfattah",
-        "phone": "01206910406",
-        "email": null,
-        "gender": null,
-        "dob": null,
-        "image": null,
-        "status": 1,
-        "created_at": "2025-01-30T19:20:08.000000Z",
-        "updated_at": "2025-02-17T19:35:56.000000Z",
-        "deleted_at": null,
-        "country_id": 1,
-        "first_name": "Ahmed",
-        "last_name": "Abdelfattah",
-        "referral": null,
-        "is_market_user": 0
+    "status": true,
+    "message": "Booking Retrieved Successfully",
+    "data": {
+        "response": {
+            "id": 134,
+            "reference_id": "68139025",
+            "branch_id": 1,
+            "sector_id": null,
+            "date": "2025-08-24 09:00:00",
+            "status": 1,
+            "total": 1100,
+            "total_price": 1100,
+            "total_before_discount": 1100,
+            "remaining": 1100,
+            "products_total_price": "400",
+            "discount": "0",
+            "price_adjustment": "-100.00",
+            "adjustment_reason": "reason reason reason reason",
+            "markup": null,
+            "base_price": null,
+            "customer_id": 15,
+            "customer_phone": "0110938938",
+            "customer_name": "Test account",
+            "rating": null,
+            "review": null,
+            "rated_at": null,
+            "count_provider": 1,
+            "payment": {
+                "method": null,
+                "status": "Unpaid"
+            },
+            "providers": [
+                {
+                    "id": 2,
+                    "rank": 1,
+                    "rating": 0,
+                    "first_name": "mohamed",
+                    "last_name": "khairy",
+                    "is_favorite": null
+                }
+            ],
+            "services": [
+                {
+                    "id": 8,
+                    "title": "Test service",
+                    "title_en": "Test service",
+                    "title_ar": "test",
+                    "icon": "",
+                    "duration": 0.5,
+                    "start": "2025-08-24 09:00",
+                    "end": "2025-08-24 09:30:00",
+                    "cost": 650,
+                    "transportation_fees": 0,
+                    "count": 1,
+                    "price": "650",
+                    "notes": null,
+                    "times": null,
+                    "can_edit": true,
+                    "is_package_offer": false,
+                    "pricing_model_unit": "Fixed",
+                    "pricing_model_unit_name": "Basic"
+                },
+                {
+                    "id": 2,
+                    "title": "5 meal service",
+                    "title_en": "5 meal service",
+                    "title_ar": "طبخ",
+                    "icon": "https://testing-env-uploads-bucket.s3.eu-central-1.amazonaws.com/uploads/services/6893641303f55.jpeg",
+                    "duration": 0,
+                    "start": "2025-08-24 09:00:00",
+                    "end": "2025-08-24 09:00:00",
+                    "cost": 150,
+                    "transportation_fees": 0,
+                    "count": 1,
+                    "price": "150",
+                    "notes": null,
+                    "times": null,
+                    "can_edit": false,
+                    "is_package_offer": false,
+                    "pricing_model_unit": "hour",
+                    "pricing_model_unit_name": "Per Hour"
+                }
+            ],
+            "foreign_customer": null,
+            "foreign_address": null,
+            "area": null,
+            "is_foreign": false,
+            "v_id": 211,
+            "m_id": null,
+            "service_id": 8,
+            "service_title": "Test service, 5 meal service",
+            "service_duration": 0.5,
+            "service_cost": "650",
+            "cities_id": null,
+            "cities_title": null,
+            "areas_id": 0,
+            "area_title": null,
+            "products": [
+                {
+                    "id": 6,
+                    "name_ar": "test",
+                    "name_en": "Test product",
+                    "branch_id": 1,
+                    "category_id": 2,
+                    "quantity": 1,
+                    "price": "400",
+                    "total": 400,
+                    "provider_commission": "20.00",
+                    "provider_commission_type": "percentage",
+                    "calculated_commission": 80,
+                    "status": "active"
+                }
+            ],
+            "commission_breakdown": {
+                "services_commission": 0,
+                "products_commission": "80.00",
+                "total_commission": 80
+            },
+            "products_details": [
+                {
+                    "id": 6,
+                    "name": "Test product",
+                    "quantity": 1,
+                    "price": "400",
+                    "total": 400,
+                    "commission": 80,
+                    "commission_type": "percentage"
+                }
+            ],
+            "can_edit": false,
+            "gender_prefrence": -1,
+            "is_favorite": 0,
+            "booking_status": 1,
+            "booking_source": 1,
+            "created_at": "2025-08-14T11:42:31.000000Z",
+            "feedback": null,
+            "completing_notes": null,
+            "notes": null,
+            "package_id": null,
+            "country_code": 1,
+            "ended_date": "2025-08-24 09:30:00",
+            "created_by": 1,
+            "cost_per_provider": "650",
+            "address": null
+        }
     },
-    "vendor_name": "Top wash",
-    "authorization": {
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZGRmNzEwYTBlYTcyZDE4MWZjNjc3NWMxM2I4NWE5OGU3MWFjODA0MTM3OGJhNWJkNWQ3NjZlZWQ0ZDc5NGQ0NWZkMTNiY2M1ODljYjQ0NWMiLCJpYXQiOjE3NTQzNzc4NTkuODQ0NTU4LCJuYmYiOjE3NTQzNzc4NTkuODQ0NTYsImV4cCI6MTc3MDI3OTA1OS44NDAxNTYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.GRQp9RUpsSKMQ22g-BSQmJTKQNiX7gcs0QmoDvKAvQR1Xt9_PoT1694dEET4dhLFWPuC1Ms_mKRn_yFB3e0Ax1e-vMGYhISlMIpJ0uBg9_Krf2dL-2oV2kXj3Jd_vZZ9rf047mThhOon8dFD8NcE71ljuwOdyWD-yaufgB_wW-U5dDmmvd1TeHv63H1p_cveGBlk95FgkUpP70ECBsGmfd6ZDwWmLStYDo-zC36mNyel646P_TUoR8OZjPFqcxs52pEtDAbBGMEHgs9xS2LSEYSzLrZLshHlH09wSkkAQQXjL3gNZaOH2Mhs8pAbVRD19pdKdWzYXh-PK_BDhiGiKOUC1JOqB0PgYhZMfkTED1HxMSFoYopxCr57oLjAvBormN98shrh-L2GPBzjSBKsKAsKnZR0A10aEtyAMDiFTc3Lmsk1BT2mnnrpxZdTOK_vnwpbrsGwf7RNHIoaEdtUFR674Ln8cxplOLtUZ0QM-Uk9TrOB4Bafgdm-_EOnWxiDewcO5FDQag6qwABVRs3_gPW0BN5ZIwbsVmaCzTTJnR9gPH2tqbWWi2C64fHBNAxmOzZMiDdlVMW2xxo91WPBdstxYzwVQ5qYr9dEJuGBblENvkobRydnT2SoGBD9-068_Y44nPI_90VfvZwVoVlsmbiEfmXNbS0OLy9O-1JE0Tw",
-        "type": "Bearer"
-    }
+    "extra_data": null
 }

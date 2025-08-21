@@ -217,5 +217,7 @@
   "floorNumber": "Floor Number",
   "unitNumber": "Unit Number",
   "notes": "Notes",
-  "no_payment": "Unpaid"
+  "no_payment": "Unpaid",
+  "price_adjustment": "Price Adjustment",
+  "products_total_price": "Products Total Price"
 }

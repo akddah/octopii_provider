@@ -198,6 +198,10 @@ mixin _$BookingResponse {
   String? get discount => throw _privateConstructorUsedError;
   @JsonKey(name: 'reference_id')
   String? get referenceId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price_adjustment')
+  String? get priceAdjustment => throw _privateConstructorUsedError;
+  @JsonKey(name: 'products_total_price')
+  String? get productsTotalPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_price')
   num? get totalPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer_id')
@@ -263,6 +267,8 @@ abstract class $BookingResponseCopyWith<$Res> {
       num? total,
       String? discount,
       @JsonKey(name: 'reference_id') String? referenceId,
+      @JsonKey(name: 'price_adjustment') String? priceAdjustment,
+      @JsonKey(name: 'products_total_price') String? productsTotalPrice,
       @JsonKey(name: 'total_price') num? totalPrice,
       @JsonKey(name: 'customer_id') dynamic customerId,
       @JsonKey(name: 'customer_name') String? customerName,
@@ -318,6 +324,8 @@ class _$BookingResponseCopyWithImpl<$Res, $Val extends BookingResponse>
     Object? total = freezed,
     Object? discount = freezed,
     Object? referenceId = freezed,
+    Object? priceAdjustment = freezed,
+    Object? productsTotalPrice = freezed,
     Object? totalPrice = freezed,
     Object? customerId = freezed,
     Object? customerName = freezed,
@@ -367,6 +375,14 @@ class _$BookingResponseCopyWithImpl<$Res, $Val extends BookingResponse>
       referenceId: freezed == referenceId
           ? _value.referenceId
           : referenceId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceAdjustment: freezed == priceAdjustment
+          ? _value.priceAdjustment
+          : priceAdjustment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productsTotalPrice: freezed == productsTotalPrice
+          ? _value.productsTotalPrice
+          : productsTotalPrice // ignore: cast_nullable_to_non_nullable
               as String?,
       totalPrice: freezed == totalPrice
           ? _value.totalPrice
@@ -539,6 +555,8 @@ abstract class _$$BookingResponseImplCopyWith<$Res>
       num? total,
       String? discount,
       @JsonKey(name: 'reference_id') String? referenceId,
+      @JsonKey(name: 'price_adjustment') String? priceAdjustment,
+      @JsonKey(name: 'products_total_price') String? productsTotalPrice,
       @JsonKey(name: 'total_price') num? totalPrice,
       @JsonKey(name: 'customer_id') dynamic customerId,
       @JsonKey(name: 'customer_name') String? customerName,
@@ -596,6 +614,8 @@ class __$$BookingResponseImplCopyWithImpl<$Res>
     Object? total = freezed,
     Object? discount = freezed,
     Object? referenceId = freezed,
+    Object? priceAdjustment = freezed,
+    Object? productsTotalPrice = freezed,
     Object? totalPrice = freezed,
     Object? customerId = freezed,
     Object? customerName = freezed,
@@ -645,6 +665,14 @@ class __$$BookingResponseImplCopyWithImpl<$Res>
       referenceId: freezed == referenceId
           ? _value.referenceId
           : referenceId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      priceAdjustment: freezed == priceAdjustment
+          ? _value.priceAdjustment
+          : priceAdjustment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productsTotalPrice: freezed == productsTotalPrice
+          ? _value.productsTotalPrice
+          : productsTotalPrice // ignore: cast_nullable_to_non_nullable
               as String?,
       totalPrice: freezed == totalPrice
           ? _value.totalPrice
@@ -756,6 +784,8 @@ class _$BookingResponseImpl implements _BookingResponse {
       required this.total,
       required this.discount,
       @JsonKey(name: 'reference_id') required this.referenceId,
+      @JsonKey(name: 'price_adjustment') required this.priceAdjustment,
+      @JsonKey(name: 'products_total_price') required this.productsTotalPrice,
       @JsonKey(name: 'total_price') required this.totalPrice,
       @JsonKey(name: 'customer_id') required this.customerId,
       @JsonKey(name: 'customer_name') required this.customerName,
@@ -802,6 +832,12 @@ class _$BookingResponseImpl implements _BookingResponse {
   @override
   @JsonKey(name: 'reference_id')
   final String? referenceId;
+  @override
+  @JsonKey(name: 'price_adjustment')
+  final String? priceAdjustment;
+  @override
+  @JsonKey(name: 'products_total_price')
+  final String? productsTotalPrice;
   @override
   @JsonKey(name: 'total_price')
   final num? totalPrice;
@@ -886,7 +922,7 @@ class _$BookingResponseImpl implements _BookingResponse {
 
   @override
   String toString() {
-    return 'BookingResponse(id: $id, date: $date, status: $status, total: $total, discount: $discount, referenceId: $referenceId, totalPrice: $totalPrice, customerId: $customerId, customerName: $customerName, payment: $payment, providers: $providers, services: $services, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceDuration: $serviceDuration, serviceCost: $serviceCost, bookingStatus: $bookingStatus, createdAt: $createdAt, customerPhone: $customerPhone, basePrice: $basePrice, feedback: $feedback, notes: $notes, packageId: $packageId, countryCode: $countryCode, endedDate: $endedDate, createdBy: $createdBy, address: $address, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
+    return 'BookingResponse(id: $id, date: $date, status: $status, total: $total, discount: $discount, referenceId: $referenceId, priceAdjustment: $priceAdjustment, productsTotalPrice: $productsTotalPrice, totalPrice: $totalPrice, customerId: $customerId, customerName: $customerName, payment: $payment, providers: $providers, services: $services, serviceId: $serviceId, serviceTitle: $serviceTitle, serviceDuration: $serviceDuration, serviceCost: $serviceCost, bookingStatus: $bookingStatus, createdAt: $createdAt, customerPhone: $customerPhone, basePrice: $basePrice, feedback: $feedback, notes: $notes, packageId: $packageId, countryCode: $countryCode, endedDate: $endedDate, createdBy: $createdBy, address: $address, isForeign: $isForeign, foreignAddress: $foreignAddress, foreignCustomer: $foreignCustomer)';
   }
 
   @override
@@ -902,6 +938,10 @@ class _$BookingResponseImpl implements _BookingResponse {
                 other.discount == discount) &&
             (identical(other.referenceId, referenceId) ||
                 other.referenceId == referenceId) &&
+            (identical(other.priceAdjustment, priceAdjustment) ||
+                other.priceAdjustment == priceAdjustment) &&
+            (identical(other.productsTotalPrice, productsTotalPrice) ||
+                other.productsTotalPrice == productsTotalPrice) &&
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
             const DeepCollectionEquality()
@@ -958,6 +998,8 @@ class _$BookingResponseImpl implements _BookingResponse {
         total,
         discount,
         referenceId,
+        priceAdjustment,
+        productsTotalPrice,
         totalPrice,
         const DeepCollectionEquality().hash(customerId),
         customerName,
@@ -1009,6 +1051,9 @@ abstract class _BookingResponse implements BookingResponse {
       required final num? total,
       required final String? discount,
       @JsonKey(name: 'reference_id') required final String? referenceId,
+      @JsonKey(name: 'price_adjustment') required final String? priceAdjustment,
+      @JsonKey(name: 'products_total_price')
+      required final String? productsTotalPrice,
       @JsonKey(name: 'total_price') required final num? totalPrice,
       @JsonKey(name: 'customer_id') required final dynamic customerId,
       @JsonKey(name: 'customer_name') required final String? customerName,
@@ -1055,6 +1100,12 @@ abstract class _BookingResponse implements BookingResponse {
   @override
   @JsonKey(name: 'reference_id')
   String? get referenceId;
+  @override
+  @JsonKey(name: 'price_adjustment')
+  String? get priceAdjustment;
+  @override
+  @JsonKey(name: 'products_total_price')
+  String? get productsTotalPrice;
   @override
   @JsonKey(name: 'total_price')
   num? get totalPrice;
@@ -1564,6 +1615,7 @@ mixin _$Service {
   String? get titleAr => throw _privateConstructorUsedError;
   String? get icon => throw _privateConstructorUsedError;
   num? get duration => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
 
   /// Serializes this Service to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1585,7 +1637,8 @@ abstract class $ServiceCopyWith<$Res> {
       @JsonKey(name: 'title_en') String? titleEn,
       @JsonKey(name: 'title_ar') String? titleAr,
       String? icon,
-      num? duration});
+      num? duration,
+      String? price});
 }
 
 /// @nodoc
@@ -1609,6 +1662,7 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
     Object? titleAr = freezed,
     Object? icon = freezed,
     Object? duration = freezed,
+    Object? price = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1635,6 +1689,10 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as num?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1652,7 +1710,8 @@ abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
       @JsonKey(name: 'title_en') String? titleEn,
       @JsonKey(name: 'title_ar') String? titleAr,
       String? icon,
-      num? duration});
+      num? duration,
+      String? price});
 }
 
 /// @nodoc
@@ -1674,6 +1733,7 @@ class __$$ServiceImplCopyWithImpl<$Res>
     Object? titleAr = freezed,
     Object? icon = freezed,
     Object? duration = freezed,
+    Object? price = freezed,
   }) {
     return _then(_$ServiceImpl(
       id: null == id
@@ -1700,6 +1760,10 @@ class __$$ServiceImplCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as num?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1713,7 +1777,8 @@ class _$ServiceImpl extends _Service {
       @JsonKey(name: 'title_en') this.titleEn,
       @JsonKey(name: 'title_ar') this.titleAr,
       this.icon,
-      this.duration})
+      this.duration,
+      this.price})
       : super._();
 
   factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
@@ -1733,10 +1798,12 @@ class _$ServiceImpl extends _Service {
   final String? icon;
   @override
   final num? duration;
+  @override
+  final String? price;
 
   @override
   String toString() {
-    return 'Service(id: $id, title: $title, titleEn: $titleEn, titleAr: $titleAr, icon: $icon, duration: $duration)';
+    return 'Service(id: $id, title: $title, titleEn: $titleEn, titleAr: $titleAr, icon: $icon, duration: $duration, price: $price)';
   }
 
   @override
@@ -1750,13 +1817,14 @@ class _$ServiceImpl extends _Service {
             (identical(other.titleAr, titleAr) || other.titleAr == titleAr) &&
             (identical(other.icon, icon) || other.icon == icon) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, titleEn, titleAr, icon, duration);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, titleEn, titleAr, icon, duration, price);
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.
@@ -1781,7 +1849,8 @@ abstract class _Service extends Service {
       @JsonKey(name: 'title_en') final String? titleEn,
       @JsonKey(name: 'title_ar') final String? titleAr,
       final String? icon,
-      final num? duration}) = _$ServiceImpl;
+      final num? duration,
+      final String? price}) = _$ServiceImpl;
   const _Service._() : super._();
 
   factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
@@ -1800,6 +1869,8 @@ abstract class _Service extends Service {
   String? get icon;
   @override
   num? get duration;
+  @override
+  String? get price;
 
   /// Create a copy of Service
   /// with the given fields replaced by the non-null parameter values.

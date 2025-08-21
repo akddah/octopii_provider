@@ -27,20 +27,21 @@ class ServiceDetailsView extends StatelessWidget {
                 ),
           ),
         ),
-        Container(
-          alignment: Alignment.center,
-          height: 21.h,
-          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 0.h),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.outlineVariant,
-            borderRadius: BorderRadius.circular(360.r),
+        if (serviceDuration != 0)
+          Container(
+            alignment: Alignment.center,
+            height: 21.h,
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 0.h),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.outlineVariant,
+              borderRadius: BorderRadius.circular(360.r),
+            ),
+            child: Text(
+              serviceDuration > 0 ? '$serviceDuration ${LocaleKeys.h.tr()}' : '${serviceDuration * 60} ${LocaleKeys.min.tr()}',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.scrim),
+              textAlign: TextAlign.center,
+            ),
           ),
-          child: Text(
-            serviceDuration > 0 ? '$serviceDuration ${LocaleKeys.h.tr()}' : '${serviceDuration * 60} ${LocaleKeys.min.tr()}',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.scrim),
-            textAlign: TextAlign.center,
-          ),
-        ),
         SizedBox(
           width: 15.w,
         ),

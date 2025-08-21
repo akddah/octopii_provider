@@ -30,6 +30,8 @@ _$BookingResponseImpl _$$BookingResponseImplFromJson(
       total: json['total'] as num?,
       discount: json['discount'] as String?,
       referenceId: json['reference_id'] as String?,
+      priceAdjustment: json['price_adjustment'] as String?,
+      productsTotalPrice: json['products_total_price'] as String?,
       totalPrice: json['total_price'] as num?,
       customerId: json['customer_id'],
       customerName: json['customer_name'] as String?,
@@ -81,6 +83,8 @@ Map<String, dynamic> _$$BookingResponseImplToJson(
       'total': instance.total,
       'discount': instance.discount,
       'reference_id': instance.referenceId,
+      'price_adjustment': instance.priceAdjustment,
+      'products_total_price': instance.productsTotalPrice,
       'total_price': instance.totalPrice,
       'customer_id': instance.customerId,
       'customer_name': instance.customerName,
@@ -165,6 +169,7 @@ _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
       titleAr: json['title_ar'] as String?,
       icon: json['icon'] as String?,
       duration: json['duration'] as num?,
+      price: json['price'] as String?,
     );
 
 Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
@@ -175,6 +180,7 @@ Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
       'title_ar': instance.titleAr,
       'icon': instance.icon,
       'duration': instance.duration,
+      'price': instance.price,
     };
 
 _$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>

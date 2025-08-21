@@ -33,6 +33,7 @@ abstract class LocaleKeys {
   static const notifications = 'notifications';
   static const profile = 'profile';
   static const currencyEgp = 'currencyEgp';
+  static const products_total_price = 'products_total_price';
   static const totalBookings = 'totalBookings';
   static const cash = 'cash';
   static const no_payment = 'no_payment';
@@ -213,5 +214,6 @@ abstract class LocaleKeys {
   static const h = 'h';
   static const min = 'min';
   static const discount = 'discount';
+  static const price_adjustment = 'price_adjustment';
   static const orderActionsMsg = 'orderActionsMsg';
 }

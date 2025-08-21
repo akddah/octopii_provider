@@ -37,7 +37,7 @@ import 'core/utils/utils/app_logger.dart';
 // final String password = kDebugMode ? '123456' : '';
 
 final String domain = kDebugMode ? 'mariam' : '';
-final String phone = kDebugMode ? '01123378808' : '';
+final String phone = kDebugMode ? '01111111111' : '';
 final String password = kDebugMode ? '123456' : '';
 
 // final String domain = kDebugMode ? 'top-wash' : '';

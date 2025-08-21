@@ -44,7 +44,7 @@ class ServiceDetailsSection extends StatelessWidget {
               (index) => ServiceDetailsView(
                 serviceName: bookingResponse?.services?[index].bookingTitle(context.locale.languageCode) ?? '',
                 serviceDuration: bookingResponse?.services?[index].duration?.toInt() ?? 0,
-                serviceCost: bookingResponse?.serviceCost ?? '',
+                serviceCost: bookingResponse?.services?[index].price ?? '',
               ),
             ),
           ),
@@ -57,20 +57,51 @@ class ServiceDetailsSection extends StatelessWidget {
           SizedBox(
             height: 8.h,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  LocaleKeys.discount.tr(),
+          if ((double.tryParse(bookingResponse?.discount ?? '') ?? 0) != 0)
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    LocaleKeys.discount.tr(),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.green),
+                  ),
+                ),
+                Text(
+                  '${LocaleKeys.currencyEgp.tr()}${bookingResponse?.discount}',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.green),
                 ),
-              ),
-              Text(
-                '${LocaleKeys.currencyEgp.tr()}${bookingResponse?.discount}',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.green),
-              ),
-            ],
-          ).withPadding(vertical: 4.h),
+              ],
+            ).withPadding(vertical: 4.h),
+          if ((double.tryParse(bookingResponse?.priceAdjustment ?? '') ?? 0) != 0)
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    LocaleKeys.price_adjustment.tr(),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                  ),
+                ),
+                Text(
+                  '${LocaleKeys.currencyEgp.tr()}${bookingResponse?.priceAdjustment}',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                ),
+              ],
+            ).withPadding(vertical: 4.h),
+          if ((double.tryParse(bookingResponse?.productsTotalPrice ?? '') ?? 0) != 0)
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    LocaleKeys.products_total_price.tr(),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                  ),
+                ),
+                Text(
+                  '${LocaleKeys.currencyEgp.tr()}${bookingResponse?.productsTotalPrice}',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                ),
+              ],
+            ).withPadding(vertical: 4.h),
           Row(
             children: [
               Expanded(

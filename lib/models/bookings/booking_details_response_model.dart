@@ -43,6 +43,8 @@ class BookingResponse with _$BookingResponse {
     required num? total,
     required String? discount,
     @JsonKey(name: 'reference_id') required String? referenceId,
+    @JsonKey(name: 'price_adjustment') required String? priceAdjustment,
+    @JsonKey(name: 'products_total_price') required String? productsTotalPrice,
     @JsonKey(name: 'total_price') required num? totalPrice,
     @JsonKey(name: 'customer_id') required dynamic customerId,
     @JsonKey(name: 'customer_name') required String? customerName,
@@ -110,6 +112,7 @@ class Service with _$Service {
     @JsonKey(name: 'title_ar') String? titleAr,
     String? icon,
     num? duration,
+    String? price,
   }) = _Service;
 
   const Service._();

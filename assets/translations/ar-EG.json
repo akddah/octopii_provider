@@ -211,5 +211,7 @@
   "min": "دقيقة",
   "discount": "خصم",
   "orderActionsMsg": "سيتم تفعيل إمكانية تنفيذ الطلب تلقائيًا قبل الموعد بنصف ساعة.",
-  "no_payment": "غير مدفوع"
+  "no_payment": "غير مدفوع",
+  "price_adjustment": "تعديل السعر",
+  "products_total_price": "المبلغ الكلي للمنتجات"
 }
