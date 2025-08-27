@@ -48,8 +48,16 @@ jobs:
         env:
           GDRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
         run: echo "$GDRIVE_CREDENTIALS" > credentials.json
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Get commit name
+        id: commit_name
+        run: echo "COMMIT_NAME=$(git log -1 --pretty=%s)" >> $GITHUB_ENV
 
       - name: Upload APK to Google Drive
+        env:
+          COMMIT_MESSAGE: ${{ env.COMMIT_NAME }}
         run: python .github/workflows/upload_to_drive.py
 
 
