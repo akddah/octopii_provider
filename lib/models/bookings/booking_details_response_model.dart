@@ -112,7 +112,7 @@ class Service with _$Service {
     @JsonKey(name: 'title_ar') String? titleAr,
     String? icon,
     num? duration,
-    String? price,
+    @JsonKey(name: 'price', fromJson: stringFromAnyNull) String? price,
   }) = _Service;
 
   const Service._();

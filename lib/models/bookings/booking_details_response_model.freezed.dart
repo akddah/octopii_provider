@@ -1615,6 +1615,7 @@ mixin _$Service {
   String? get titleAr => throw _privateConstructorUsedError;
   String? get icon => throw _privateConstructorUsedError;
   num? get duration => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price', fromJson: stringFromAnyNull)
   String? get price => throw _privateConstructorUsedError;
 
   /// Serializes this Service to a JSON map.
@@ -1638,7 +1639,7 @@ abstract class $ServiceCopyWith<$Res> {
       @JsonKey(name: 'title_ar') String? titleAr,
       String? icon,
       num? duration,
-      String? price});
+      @JsonKey(name: 'price', fromJson: stringFromAnyNull) String? price});
 }
 
 /// @nodoc
@@ -1711,7 +1712,7 @@ abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
       @JsonKey(name: 'title_ar') String? titleAr,
       String? icon,
       num? duration,
-      String? price});
+      @JsonKey(name: 'price', fromJson: stringFromAnyNull) String? price});
 }
 
 /// @nodoc
@@ -1778,7 +1779,7 @@ class _$ServiceImpl extends _Service {
       @JsonKey(name: 'title_ar') this.titleAr,
       this.icon,
       this.duration,
-      this.price})
+      @JsonKey(name: 'price', fromJson: stringFromAnyNull) this.price})
       : super._();
 
   factory _$ServiceImpl.fromJson(Map<String, dynamic> json) =>
@@ -1799,6 +1800,7 @@ class _$ServiceImpl extends _Service {
   @override
   final num? duration;
   @override
+  @JsonKey(name: 'price', fromJson: stringFromAnyNull)
   final String? price;
 
   @override
@@ -1850,6 +1852,7 @@ abstract class _Service extends Service {
       @JsonKey(name: 'title_ar') final String? titleAr,
       final String? icon,
       final num? duration,
+      @JsonKey(name: 'price', fromJson: stringFromAnyNull)
       final String? price}) = _$ServiceImpl;
   const _Service._() : super._();
 
@@ -1870,6 +1873,7 @@ abstract class _Service extends Service {
   @override
   num? get duration;
   @override
+  @JsonKey(name: 'price', fromJson: stringFromAnyNull)
   String? get price;
 
   /// Create a copy of Service

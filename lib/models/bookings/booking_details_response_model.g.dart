@@ -169,7 +169,7 @@ _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
       titleAr: json['title_ar'] as String?,
       icon: json['icon'] as String?,
       duration: json['duration'] as num?,
-      price: json['price'] as String?,
+      price: stringFromAnyNull(json['price']),
     );
 
 Map<String, dynamic> _$$ServiceImplToJson(_$ServiceImpl instance) =>
